@@ -21,12 +21,12 @@ devtools::install_github("ikbentimkramer/cdphmd")
 
 which installs cdphmd
 
-## Example
+## Usage
 
-This is a basic example which shows you how to solve a common problem:
+When you have cdphmd installed, run:
 
 ``` r
-library(cdp.housingDashboard)
-## basic example code
+cdphmd::run()
 ```
 
+to start the dashboard.
