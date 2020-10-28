@@ -2,6 +2,7 @@
 # cdphmd
 
 <!-- badges: start -->
+[![Travis build status](https://travis-ci.com/ikbentimkramer/cdphmd.svg?branch=master)](https://travis-ci.com/ikbentimkramer/cdphmd)
 <!-- badges: end -->
 
 The cdphmd (Collaborative Data Project Housing Market Dashboard) is a dashboard for the housing market in the north of the Netherlands.
