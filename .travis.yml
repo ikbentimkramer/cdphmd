@@ -7,3 +7,7 @@ r:
   - oldrel
   
 cache: packages
+
+dist: xenial
+
+os: linux
