@@ -18,3 +18,4 @@ Imports:
     magrittr,
     shiny,
     jsonlite,
+    stringr
