@@ -15,7 +15,7 @@ read_housing_stock_data <- function() {
     "(Periods eq '2019JJ00')) and ",
     "(Purpose eq 'T001419')",
     "&$select=Periods,Regions,InitialStock_1"), # Column select
-    simplifyDataFrame = TRUE)
+    simplifyDataFrame = TRUE)[["value"]]
 }
 
 #' Clean housing stock data
@@ -33,7 +33,7 @@ read_housing_stock_data <- function() {
 clean_housing_stock_data <- function(df) {
   df[["Regions"]] <- NULL
   colnames(df)[which(colnames(df) == "Periods")] <- "year"
-  colnames(df)[which(colnames(df) == "InitialStock_1")] <- `housing stock`
+  colnames(df)[which(colnames(df) == "InitialStock_1")] <- "housing stock"
   df[["year"]] <- as.integer(stringr::str_extract(df[["year"]], "^[0-9]{4}"))
   df
 }
