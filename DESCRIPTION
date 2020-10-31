@@ -16,4 +16,5 @@ Suggests:
     testthat
 Imports: 
     magrittr,
-    shiny
+    shiny,
+    dplyr
