@@ -19,4 +19,5 @@ Imports:
     magrittr,
     shiny,
     jsonlite,
-    stringr
+    stringr,
+    dplyr
