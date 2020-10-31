@@ -18,5 +18,6 @@ Suggests:
 Imports: 
     magrittr,
     shiny,
+    dplyr,
     jsonlite,
     stringr
