@@ -9,6 +9,6 @@
 #' @import shiny
 main_ui  <- function() {
     shiny::fluidPage(
-               shiny::textOutput("hello")
+               line_graph_ui("housing_stock")
            )
 }
