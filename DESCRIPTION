@@ -9,9 +9,8 @@ Authors@R:
            email = "53525709+ikbentimkramer@users.noreply.github.com"),
     person(given = "Augustin",
            family = "Procopi",
-           role = "aut,
+           role = "aut",
            email = "63319237+Augustin4762@users.noreply.github.com"))
-
 Description: This package contains a dashboard for the housing market in the north of the Netherlands.
 License: MIT + file LICENSE
 Encoding: UTF-8
