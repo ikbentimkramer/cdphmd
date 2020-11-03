@@ -3,5 +3,8 @@
 export("%>%")
 export(run)
 import(dplyr)
+import(jsonlite)
 import(shiny)
+import(shinydashboard)
+import(stringr)
 importFrom(magrittr,"%>%")
