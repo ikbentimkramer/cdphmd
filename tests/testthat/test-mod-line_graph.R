@@ -7,3 +7,9 @@ test_that("line_graph_server does not throw errors", {
       expect_error(output$linegraph, NA)
     })
 })
+test_that("column name strings get converted to formulas correctly",{
+  expect_equal(string2formula("foo"), ~foo)
+  expect_equal(string2formula(" foo"), ~` foo`)
+  expect_equal(string2formula("foo "), ~`foo `)
+  expect_equal(string2formula("foo bar"), ~`foo bar`)
+})

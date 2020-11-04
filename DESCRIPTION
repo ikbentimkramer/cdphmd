@@ -26,4 +26,6 @@ Imports:
     dplyr,
     jsonlite,
     stringr,
-    shinydashboard
+    shinydashboard,
+    plotly,
+    stats
