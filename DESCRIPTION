@@ -25,4 +25,5 @@ Imports:
     shiny,
     dplyr,
     jsonlite,
-    stringr
+    stringr,
+    shinydashboard
