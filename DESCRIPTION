@@ -10,7 +10,7 @@ Authors@R:
                      family="Yi",
                      role="aut",
                      email="71090122+sz0755@users.noreply.github.com))
-Description: This package contains a dashboard for the housing market in the north of the Netherlands.
+Description: This package contains a dashboard for the housing market in  north of the Netherlands.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
