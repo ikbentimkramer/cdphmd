@@ -9,7 +9,7 @@ Authors@R:
         person(given="QiHao",
                      family="Yi",
                      role="aut",
-                     email="71090122+sz0755@users.noreply.github.com”))
+                     email="71090122+sz0755@users.noreply.github.com"))
 Description: This package contains a dashboard for the housing market in the north of the Netherlands.
 License: MIT + file LICENSE
 Encoding: UTF-8
