@@ -1,10 +1,11 @@
-#This is a script that first splits the dataset by municipalities, can
-#be included in the clean function later The second part of the script
-#manually plots housing stock for the initial attempts to create a
-#sidebar with several graphs
-
-clean_plot <- function () { datafin =
-  clean_housing_stock_data2(read_housing_stock_data2())
+#' This is a script that first splits the dataset by municipalities,
+#' can be included in the clean function later The second part of the
+#' script manually plots housing stock for the initial attempts to
+#' create a sidebar with several graphs
+#' @import ggplot2
+#' @noRd
+clean_plot <- function () {
+  datafin = clean_housing_stock_data2(read_housing_stock_data2())
 
   #Splitting the dataset by municipalities for plotting each
   region_name <- paste0("Municipality of ", datafin$Regions)
@@ -17,17 +18,20 @@ clean_plot <- function () { datafin =
   #coding Some example plots here, so I can see how to add them in a
   #sub-menu on shiny
 
-  p1 = ggplot(data = split_by_region$`Municipality of Assen`,
-    aes(x = year, y = `housing stock`)) + geom_line()+ geom_point()
+  p1 = ggplot2::ggplot(data = split_by_region$`Municipality of Assen`,
+    ggplot2::aes(x = year, y = `housing stock`)) +
+    ggplot2::geom_line() + ggplot2::geom_point()
 
-  p2 = ggplot(data = split_by_region$`Municipality of Delfzijl`,
-    aes(x = year, y = `housing stock`)) + geom_line()+ geom_point()
+  p2 = ggplot2::ggplot(data = split_by_region$`Municipality of Delfzijl`,
+    ggplot2::aes(x = year, y = `housing stock`)) +
+    ggplot2::geom_line() + ggplot2::geom_point()
 
-  p3 = ggplot(data = split_by_region$`Municipality of Emmen`,
-    aes(x = year, y = `housing stock`)) + geom_line()+ geom_point()
+  p3 = ggplot2::ggplot(data = split_by_region$`Municipality of Emmen`,
+    ggplot2::aes(x = year, y = `housing stock`)) +
+    ggplot2::geom_line() + ggplot2::geom_point()
 
   #This municipality has missing values for housing stock column p4 =
-  ggplot(data = split_by_region$`Municipality of Het Hogeland`,
-    aes(x = year, y = `housing stock`)) + geom_line()+ geom_point()
-
+  ggplot2::ggplot(data = split_by_region$`Municipality of Het Hogeland`,
+    ggplot2::aes(x = year, y = `housing stock`)) +
+    ggplot2::geom_line() + ggplot2::geom_point()
 }
