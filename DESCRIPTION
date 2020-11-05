@@ -21,4 +21,7 @@ Suggests:
     testthat
 Imports: 
     magrittr,
-    shiny
+    shiny,
+    jsonlite,
+    shinydashboard,
+    stringr

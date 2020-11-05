@@ -24,7 +24,7 @@ clean_housing_stock_data2 <- function(df) {
   #Rename regions from their code to the name, some codes do not match to the general list they give
   levels(df[["Regions"]]) <- c("GM005-unknown","Delfzijl","GM0017-unknown",
                                "GM0022-unknown","Assen", "Emmen","Hoogeveen",
-                               "Meppel","Tynaarlo","Het Hogeland") 
+                               "Meppel","Tynaarlo","Het Hogeland")
   colnames(df)[which(colnames(df) == "Periods")] <- "year"
   colnames(df)[which(colnames(df) == "InitialStock_1")] <- "housing stock"
   df[["year"]] <- as.integer(stringr::str_extract(df[["year"]], "^[0-9]{4}"))
@@ -32,6 +32,6 @@ clean_housing_stock_data2 <- function(df) {
   #What to do with municipalities that do not have records for every year shall be discussed
     df = df[!(is.na(df$`housing stock`)), ]
   #remove ID and Purpose columns
-    df = select(df, -ï..ID, -Purpose)
+    df = select(df, -ID, -Purpose)
   df
 }
