@@ -19,19 +19,19 @@ clean_plot <- function () {
   #sub-menu on shiny
 
   p1 = ggplot2::ggplot(data = split_by_region$`Municipality of Assen`,
-    ggplot2::aes(x = year, y = `housing stock`)) +
+    ggplot2::aes(x = "year", y = "housing stock")) +
     ggplot2::geom_line() + ggplot2::geom_point()
 
   p2 = ggplot2::ggplot(data = split_by_region$`Municipality of Delfzijl`,
-    ggplot2::aes(x = year, y = `housing stock`)) +
+    ggplot2::aes(x = "year", y = "housing stock")) +
     ggplot2::geom_line() + ggplot2::geom_point()
 
   p3 = ggplot2::ggplot(data = split_by_region$`Municipality of Emmen`,
-    ggplot2::aes(x = year, y = `housing stock`)) +
+    ggplot2::aes(x = "year", y = "housing stock")) +
     ggplot2::geom_line() + ggplot2::geom_point()
 
   #This municipality has missing values for housing stock column p4 =
   ggplot2::ggplot(data = split_by_region$`Municipality of Het Hogeland`,
-    ggplot2::aes(x = year, y = `housing stock`)) +
+    ggplot2::aes(x = "year", y = "housing stock")) +
     ggplot2::geom_line() + ggplot2::geom_point()
 }

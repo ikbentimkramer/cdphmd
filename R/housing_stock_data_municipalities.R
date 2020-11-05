@@ -34,8 +34,8 @@ clean_housing_stock_data2 <- function(df) {
   df[["year"]] <- as.integer(stringr::str_extract(df[["year"]], "^[0-9]{4}"))
   #remove rows where the housing stock is not available at least in one year
   #What to do with municipalities that do not have records for every year shall be discussed
-    df = df[!(is.na(df$`housing stock`)), ]
+    df = df[!(is.na(df[["housing stock"]])), ]
   #remove ID and Purpose columns
-    df = dplyr::select(df, -ID, -Purpose)
+    df = dplyr::select(df, -"ID", -"Purpose")
   df
 }
