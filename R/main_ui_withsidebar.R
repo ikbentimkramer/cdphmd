@@ -14,16 +14,16 @@ main_ui  <- function() {
   shinydashboard::dashboardPage(
     shinydashboard::dashboardHeader(title = constants[["title"]]),
     shinydashboard::dashboardSidebar(
-      sidebarMenu(
+      shinydashboard::sidebarMenu(
       # Setting id makes input$tabs give the tabName of currently-selected tab
       id = "tabs",
-      menuItem("Dashboard", tabName = "dashboard", icon = icon("dashboard")),
-      menuItem("Housing Stock", icon = icon("building"), 
-               menuSubItem("Municipalities of Groningen", tabName = "GR", ),
-               menuSubItem("Municipalities of Drenthe", tabName = "DR")
+      shinydashboard::menuItem("Dashboard", tabName = "dashboard", icon = shiny::icon("dashboard")),
+      shinydashboard::menuItem("Housing Stock", icon = icon("building"),
+               shinydashboard::menuSubItem("Municipalities of Groningen", tabName = "GR", ),
+               shinydashboard::menuSubItem("Municipalities of Drenthe", tabName = "DR")
       )
       )
-      
+
     ),
     shinydashboard::dashboardBody(
       tags$head(
@@ -36,15 +36,15 @@ main_ui  <- function() {
           rel = "stylesheet",
           type = "text/css")
       ),
-        tabItems(
-          tabItem(tabName = "GR",
+        shinydashboard::tabItems(
+          shinydashboard::tabItem(tabName = "GR",
                 shiny::fluidRow(
                   shinydashboard::box(
                     line_graph_ui("housing_stock"),
                     title = "Housing stock")
                 )
               ),
-        tabItem(tabName = "DR",
+        shinydashboard::tabItem(tabName = "DR",
           h2("text2")
         )
       )
