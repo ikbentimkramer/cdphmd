@@ -2,7 +2,7 @@
 #' can be included in the clean function later The second part of the
 #' script manually plots housing stock for the initial attempts to
 #' create a sidebar with several graphs
-#' @import ggplot2
+#' @importFrom ggplot2 ggplot aes geom_line geom_point
 #' @noRd
 clean_plot <- function () {
   datafin = clean_housing_stock_data2(read_housing_stock_data2())
