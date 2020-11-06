@@ -1,13 +1,16 @@
 test_that("Correctly cleans housing stock data", {
-  stock <- c(141324, 32345, 123)
+  stock <- c(13671, 13254, 13352)
   df <- data.frame(
-    Periods = c("2015JJ00", "2016JJ00", "1999JJ00"),
-    Regions = rep("LD01  ", 3),
+    Periods = c("2017JJ00", "2018JJ00", "2017JJ00"),
+    Regions = c("GM1680", "GM0197", "GM0059"),
     InitialStock_1 = stock)
-  res <- clean_housing_stock_data(df)
-  expect_null(res[["Regions"]])
-  expect_equal(res[["housing stock"]], stock)
-  expect_equal(res[["year"]], c(2015, 2016, 1999))
+  codes_df <- data.frame(
+    GemeentecodeGM = c("GM1680","GM0197", "GM0059"),
+    Provincienaam = c("Drenthe", "Gelderland", "Friesland")
+  )
+  res <- clean_housing_stock_data(df,codes_df)
+  expect_equal(res[["housing stock"]], 13671)
+  expect_equal(res[["year"]], 2017)
 })
 
 test_that("jsonlite::read_json is called with two arguments", {

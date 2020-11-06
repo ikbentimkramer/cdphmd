@@ -13,7 +13,7 @@
 #' @noRd
 
 clean_housing_stock_data <- function(df,codes_df) {
-  y <- filter(codes_df$Provincienaam == "Groningen" | codes_df$Provincienaam == "Drenthe")
+  y <- filter(codes_df, Provincienaam == "Groningen" | Provincienaam == "Drenthe")
   df <- dplyr::left_join(y, df, by = c("GemeentecodeGM" = "Regions"))
   colnames(df)[which(colnames(df) == "Periods")] <- "year"
   colnames(df)[which(colnames(df) == "InitialStock_1")] <- "housing stock"
