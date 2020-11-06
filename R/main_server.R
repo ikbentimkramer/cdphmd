@@ -8,7 +8,13 @@
 #' }
 #' @import shiny
 main_server <- function() {
-    function(input, output, session) {
-        output$hello  <- shiny::renderText("Hello, world!")
+  housing_data <- clean_housing_stock_data(
+    read_housing_stock_data())
+  function(input, output, session) {
+    line_graph_server(
+      "housing_stock",
+      "year",
+      "housing stock",
+      housing_data)
     }
 }

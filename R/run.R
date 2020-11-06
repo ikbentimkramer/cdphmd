@@ -9,5 +9,6 @@
 #' @import shiny
 #' @export
 run  <- function() {
-    shiny::shinyApp(main_ui(), main_server())
+  shiny::addResourcePath('www', system.file('www', package = 'cdphmd'))
+  shiny::shinyApp(main_ui(), main_server())
 }

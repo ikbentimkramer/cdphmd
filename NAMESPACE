@@ -2,5 +2,11 @@
 
 export("%>%")
 export(run)
+import(dplyr)
+import(plotly)
 import(shiny)
+import(shinydashboard)
+import(stringr)
+importFrom(jsonlite,read_json)
 importFrom(magrittr,"%>%")
+importFrom(stats,as.formula)
