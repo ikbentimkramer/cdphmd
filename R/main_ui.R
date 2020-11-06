@@ -1,6 +1,7 @@
 #' Main UI
 #'
 #' This function returns the main UI for this dashboard.
+#' @param housing_data housing stock data
 #'
 #' @examples
 #' \dontrun{
@@ -8,7 +9,8 @@
 #' }
 #' @import shiny
 #' @import shinydashboard
-main_ui  <- function() {
+#' @noRd
+main_ui  <- function(housing_data) {
   constants <- list(
     title = "CDPHMD")
   shinydashboard::dashboardPage(
@@ -27,7 +29,11 @@ main_ui  <- function() {
       ),
       shiny::fluidRow(
         shinydashboard::box(
-          line_graph_ui("housing_stock"),
+          dropdown_box_graph_ui(
+            "housing_stock",
+            line_graph_ui,
+            "Municipalities",
+            unique(housing_data[[,"municipalities"]])),
           title = "Housing stock")
       )
     )
