@@ -13,5 +13,5 @@ a dataframe with every municipality code,name and province
 Reads the identification data for municipalities
 }
 \examples{
-df = mun_code_to_name()
+df = read_municipality()
 }
