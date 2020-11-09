@@ -32,8 +32,8 @@ main_ui  <- function(housing_data) {
           dropdown_box_graph_ui(
             "housing_stock",
             line_graph_ui,
-            "Municipalities",
-            unique(housing_data[[,"municipalities"]])),
+            "Municipality",
+            unique(housing_data[,"municipality"])),
           title = "Housing stock")
       )
     )

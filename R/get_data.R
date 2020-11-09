@@ -14,7 +14,9 @@ get_data <- function (data_string) {
     return(readRDS(data_path))
   }
   if (data_string == "housing_data") {
-    res <- clean_housing_stock_data(read_housing_stock_data())
+    res <- clean_housing_stock_data(
+      read_housing_stock_data(),
+      read_municipality())
     saveRDS(res, data_path)
     return(res)
   }
