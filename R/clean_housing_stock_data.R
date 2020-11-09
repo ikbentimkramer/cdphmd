@@ -17,6 +17,8 @@ clean_housing_stock_data <- function(df,codes_df) {
   df <- dplyr::left_join(y, df, by = c("GemeentecodeGM" = "Regions"))
   colnames(df)[which(colnames(df) == "Periods")] <- "year"
   colnames(df)[which(colnames(df) == "InitialStock_1")] <- "housing stock"
+  colnames(df)[which(colnames(df) == "Gemeentenaam")] <- "municipality"
+  colnames(df)[which(colnames(df) == "Provincienaam")] <- "province"
   df[["year"]] <- as.integer(stringr::str_extract(df[["year"]], "^[0-9]{4}"))
   df[["Gemeentecode"]] <- NULL
   df[["GemeentecodeGM"]] <- NULL
