@@ -26,7 +26,7 @@ dropdown_box_graph_server <- function(id,
                                       graph_server = NULL) {
   shiny::moduleServer(id, function (input, output, session) {
     filtered_df <- reactive({
-      df[,which(df[filter_col,] == input$select)]
+      df[which(df[,filter_col] == input$select),]
     })
     graph_server("graph", x, y, filtered_df)
   })
