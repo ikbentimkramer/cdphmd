@@ -30,4 +30,5 @@ Imports:
     plotly,
     stats,
     readxl,
-    utils
+    utils,
+    rlang

@@ -10,10 +10,11 @@
 #' @return a data frame with four columns: Gemeentenaam, Provincienaam, year and `housing stock`.
 #' @import stringr
 #' @importFrom dplyr left_join
+#' @importFrom rlang .data
 #' @noRd
 
 clean_housing_stock_data <- function(df,codes_df) {
-  codes_df <- filter(codes_df, Provincienaam == "Groningen" | Provincienaam == "Drenthe")
+  codes_df <- filter(codes_df, .data$Provincienaam == "Groningen" | .data$Provincienaam == "Drenthe")
   df <- dplyr::left_join(codes_df, df, by = c("GemeentecodeGM" = "Regions"))
   colnames(df)[which(colnames(df) == "Periods")] <- "year"
   colnames(df)[which(colnames(df) == "InitialStock_1")] <- "housing stock"
