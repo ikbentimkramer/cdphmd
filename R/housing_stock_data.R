@@ -2,7 +2,7 @@
 #'
 #' This function retrieves housing stock counts for 2015-2019 of the
 #' north of the Netherlands.
-#' @import jsonlite
+#' @importFrom jsonlite read_json
 #' @noRd
 read_housing_stock_data <- function() {
   jsonlite::read_json(paste0(
