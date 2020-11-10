@@ -13,5 +13,7 @@ a dataframe with every municipality code,name and province
 Reads the identification data for municipalities
 }
 \examples{
+\dontrun{
 df = read_municipality()
+}
 }
