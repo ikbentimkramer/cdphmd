@@ -48,6 +48,7 @@ main_ui  <- function(housing_data) {
                   title = "Housing stock")
               )),
       tabItem("houseprice", "info about the 2nd indicator we will choose"),
+      tabItem("Indicator2", "info about the 2nd indicator we will choose"),
       tabItem("Indicator3", "info about the 3rd indicator we will choose")
     )
   )
