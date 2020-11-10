@@ -28,4 +28,7 @@ Imports:
     stringr,
     shinydashboard,
     plotly,
-    stats
+    stats,
+    readxl,
+    utils,
+    rlang
