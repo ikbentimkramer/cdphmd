@@ -19,7 +19,8 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Suggests: 
     testthat,
-    mockery
+    mockery,
+    rlang
 Imports: 
     magrittr,
     shiny,
