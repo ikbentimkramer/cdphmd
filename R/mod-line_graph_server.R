@@ -23,6 +23,9 @@ line_graph_server <- function(id, x, y, df) {
   y_form <- string2formula(y)
   shiny::moduleServer(id, function(input, output, session) {
     output$linegraph  <- plotly::renderPlotly({
+      if (shiny::is.reactive(df)) {
+        df <- df()
+      }
       plotly::plot_ly(
         df,
         x = x_form,

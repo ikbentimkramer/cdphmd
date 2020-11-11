@@ -8,7 +8,7 @@
 #' }
 #' @import shiny
 #' @import shinydashboard
-main_ui  <- function() {
+main_ui  <- function(housing_data) {
   constants <- list(
     title = "CDPHMD")
   header <- shinydashboard::dashboardHeader(title = constants[["title"]])
@@ -18,7 +18,7 @@ main_ui  <- function() {
       menuItem("General Information", tabName = "Intro", icon = icon("info")),
       menuItem("Indicators", icon = icon("chart-line"), tabName = "indicators",
                menuSubItem("Housing stock", tabName = "housingstock", icon = icon("building")),
-               menuSubItem("Indicator 2", tabName = "Indicator2"),
+               menuSubItem("House Price", tabName = "houseprice", icon = icon("dollar-sign")),
                menuSubItem("Indicator 3", tabName = "Indicator3")),
       menuItem("Another item", tabName = "another")
     )
@@ -37,8 +37,17 @@ main_ui  <- function() {
     ),
     tabItems(
       tabItem(tabName = "Intro", "General overview of the dashboard"),
-      tabItem("housingstock", "housing stock graph of both regions together,
-        selection box for Groningen and Drenthe, and then selection box for municipality"),
+      tabItem("housingstock",
+              shiny::fluidRow(
+                shinydashboard::box(
+                  dropdown_box_graph_ui(
+                    "housing_stock",
+                    line_graph_ui,
+                    "Municipality",
+                    unique(housing_data[,"municipality"])),
+                  title = "Housing stock")
+              )),
+      tabItem("houseprice", "info about the 2nd indicator we will choose"),
       tabItem("Indicator2", "info about the 2nd indicator we will choose"),
       tabItem("Indicator3", "info about the 3rd indicator we will choose")
     )
