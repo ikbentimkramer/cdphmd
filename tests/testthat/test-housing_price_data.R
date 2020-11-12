@@ -13,14 +13,14 @@ codes_df <- data.frame(
 res <- clean_housing_price_data(df,codes_df)
 
 test_that("Cleaned df contains the right columns",{
-  col_names <- c("municipality","province","year", "Average selling price (€)")
+  col_names <- c("municipality","province","year", "Average selling price")
   expect_true(all(col_names %in% names(res)))
   expect_true(all(names(res) %in% col_names))
 })
 
 test_that("Cleaned df correctly matches municipality codes", {
-  expect_equal(res[which(res[,"Average selling price (€)"] == 22222),
+  expect_equal(res[which(res[,"Average selling price"] == 22222),
                    "municipality"], "Mordor")
   expect_length(res[which(res[,"municipality"] == "Duckstad"),
-                    "Average selling price (€)"], 3)
+                    "Average selling price"], 3)
 })
