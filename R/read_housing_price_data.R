@@ -12,8 +12,7 @@ read_housing_price_data <- function() {
     "(Perioden eq '2016JJ00') or ",
     "(Perioden eq '2017JJ00') or ",
     "(Perioden eq '2018JJ00') or ",
-    "(Perioden eq '2019JJ00')) and ",
-   
+    "(Perioden eq '2019JJ00'))",
     "&$select=Perioden,RegioS,GemiddeldeVerkoopprijs_1"), # Column select
     simplifyDataFrame = TRUE)[["value"]]
 }
