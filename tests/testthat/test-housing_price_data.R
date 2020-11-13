@@ -24,3 +24,10 @@ test_that("Cleaned df correctly matches municipality codes", {
   expect_length(res[which(res[,"municipality"] == "Duckstad"),
                     "Average selling price"], 3)
 })
+
+test_that("jsonlite::read_json is called with two arguments", {
+  m <- mockery::mock()
+  mockery::stub(read_housing_price_data, "jsonlite::read_json", m)
+  read_housing_price_data()
+  expect_length(mockery::mock_args(m)[[1]], 2)
+})
