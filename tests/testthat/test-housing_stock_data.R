@@ -7,7 +7,8 @@ df <- data.frame(
 codes_df <- data.frame(
   GemeentecodeGM = c("GM1680","GM0197", "GM0059"),
   Provincienaam = c("Drenthe", "Groningen", "Groningen"),
-  Gemeentenaam = c("Duckstad", "Minas Tirith", "Rommeldam"))
+  Gemeentenaam = c("Duckstad", "Minas Tirith", "Rommeldam"),
+  stringsAsFactors = FALSE)
 
 ## Set up result
 res <- clean_housing_stock_data(df,codes_df)
