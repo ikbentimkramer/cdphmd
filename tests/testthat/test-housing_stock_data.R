@@ -3,7 +3,8 @@ stock <- c(10000, 13254, 320, 22222, 54321, 3, 0, 55555, 8291)
 df <- data.frame(
   Periods = rep(c("2017JJ00", "2018JJ00", "2017JJ00"), 3),
   Regions = c(rep("GM1680", 3), rep("GM0197", 3), rep("GM0059", 3)),
-  InitialStock_1 = stock)
+  InitialStock_1 = stock,
+  stringsAsFactors = FALSE)
 codes_df <- data.frame(
   GemeentecodeGM = c("GM1680","GM0197", "GM0059"),
   Provincienaam = c("Drenthe", "Groningen", "Groningen"),

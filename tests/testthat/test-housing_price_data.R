@@ -3,11 +3,13 @@ price <- c(10000, 13254, 320, 22222, 54321, 3, 0, 55555, 8291)
 df <- data.frame(
   Perioden = rep(c("2017JJ00", "2018JJ00", "2017JJ00"), 3),
   RegioS = c(rep("GM1680", 3), rep("GM0197", 3), rep("GM0059", 3)),
-  GemiddeldeVerkoopprijs_1 = price)
+  GemiddeldeVerkoopprijs_1 = price,
+  stringsAsFactors = FALSE)
 codes_df <- data.frame(
   GemeentecodeGM = c("GM1680","GM0197", "GM0059"),
   Provincienaam = c("Drenthe", "Groningen", "Groningen"),
-  Gemeentenaam = c("Duckstad", "Mordor", "Rommeldam"))
+  Gemeentenaam = c("Duckstad", "Mordor", "Rommeldam"),
+  stringsAsFactors = FALSE)
 
 ## Set up result
 res <- clean_housing_price_data(df,codes_df)
