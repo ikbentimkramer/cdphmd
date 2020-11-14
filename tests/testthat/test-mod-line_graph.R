@@ -30,10 +30,12 @@ test_that("column name strings get converted to formulas correctly",{
 })
 
 test_that("line_graph_server accepts reactives", {
-  shiny::testServer(
-    line_graph_server,
-    args = list(x = "foo", y = "bar", df = shiny::reactive({input})),
-    {
-      expect_error(output$linegraph, NA)
-    })
+  rlang::with_options(lifecycle_verbosity = "quiet", {
+    shiny::testServer(
+      line_graph_server,
+      args = list(x = "foo", y = "bar", df = shiny::reactive({input})),
+      {
+        expect_error(output$linegraph, NA)
+      })
+  })
 })
