@@ -20,6 +20,13 @@ get_data <- function (data_string) {
     saveRDS(res, data_path)
     return(res)
   }
+  if (data_string == "housing_price"){
+    res <- clean_housing_price_data(
+      read_housing_price_data(),
+      read_municipality())
+    saveRDS(res, data_path)
+    return(res)
+  }
   stop(paste0("unknown data_string: ", data_string))
 }
 
