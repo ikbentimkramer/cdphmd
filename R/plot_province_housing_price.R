@@ -1,0 +1,16 @@
+plot_province_housing_price <- function(df){
+df_GR <- filter(df, df$Province == "PV20  ")
+df_FR <- filter(df, df$Province == "PV21  ")
+df_DR <- filter(df, df$Province == "PV22  ")
+
+data = data.frame(levels(factor(df$year)), df_GR$`Average selling price`, df_DR$`Average selling price`, 
+                  df_FR$`Average selling price`)
+
+fig <- plot_ly(data, x = levels(factor(df$year)), y = df_GR$`Average selling price`, name = "Groningen", type = 'scatter', mode = 'lines')
+fig <- fig %>% add_trace(y = df_DR$`Average selling price`, name = "Drenthe", mode = 'lines')
+fig <- fig %>% add_trace(y = df_FR$`Average selling price`, name = "Friesland", mode = 'lines')
+fig <- fig %>% layout(title = 'The average selling price of houses in the northern provinces of the Netherlands in 2015-2019',
+                      xaxis = list(title = 'year'),
+                      yaxis = list (title = 'Average selling price in euros'))
+fig
+}
