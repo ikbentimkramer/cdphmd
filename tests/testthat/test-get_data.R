@@ -1,6 +1,6 @@
 ## Mock all IO
 read <- mockery::mock("read")
-mockery::stub(get_data, "readRDS", read, 3)
+mockery::stub(get_data, "readRDS", read, 1)
 mockery::stub(get_data, "read_housing_stock_data", "", 4)
 mockery::stub(get_data, "read_housing_price_data", "", 4)
 mockery::stub(get_data, "read_municipality", "", 4)
