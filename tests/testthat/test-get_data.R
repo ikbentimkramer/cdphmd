@@ -1,7 +1,4 @@
 ## Mock all IO
-exist <- mockery::mock(TRUE, FALSE, FALSE, cycle = FALSE)
-mockery::stub(get_data, "file.exists", exist, 1)
-mockery::stub(get_data, "dir.create", "", 1)
 read <- mockery::mock("read")
 mockery::stub(get_data, "readRDS", read, 3)
 mockery::stub(get_data, "read_housing_stock_data", "", 4)
@@ -13,8 +10,11 @@ clean_price <- mockery::mock("clean price", cycle = TRUE)
 mockery::stub(get_data, "clean_housing_price_data", clean_price, 3)
 
 test_that("Local file is read if it exists", {
+  mockery::stub(get_data, "file.exists", TRUE, 1)
   expect_equal(get_data("housing_data"), "read")
 })
+
+mockery::stub(get_data, "file.exists", mockery::mock(FALSE, cycle = TRUE), 1)
 
 test_that("Housing stock data is retrieved online and saved", {
   save <- mockery::mock()
@@ -36,5 +36,5 @@ test_that("Housing price data is retrieved online and saved", {
 })
 
 test_that("Unknown strings throw error", {
-  expect_error(get_data("test"))
+  expect_error(get_data("test"), "unknown data_string: test")
 })
