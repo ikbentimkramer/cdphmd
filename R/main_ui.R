@@ -8,11 +8,12 @@
 #' }
 #' @import shiny
 #' @import shinydashboard
+#' @noRd
 main_ui  <- function(housing_data, housing_price) {
   constants <- list(
     title = "CDPHMD")
   header <- shinydashboard::dashboardHeader(title = constants[["title"]])
-  
+
   sidebar <- shinydashboard::dashboardSidebar(
     sidebarMenu(
       menuItem("General Information", tabName = "Intro", icon = icon("info")),
@@ -27,6 +28,7 @@ main_ui  <- function(housing_data, housing_price) {
       )
     )
   )
+
   body <- shinydashboard::dashboardBody(
     tags$head(
       tags$link(

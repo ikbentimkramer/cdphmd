@@ -8,7 +8,7 @@ df <- data.frame(
 codes_df <- data.frame(
   GemeentecodeGM = c("GM1680","GM0197", "GM0059"),
   Provincienaam = c("Drenthe", "Groningen", "Groningen"),
-  Gemeentenaam = c("Duckstad", "Mordor", "Rommeldam"),
+  Gemeentenaam = c("Duckstad", "Minas Morgul", "Rommeldam"),
   stringsAsFactors = FALSE)
 
 ## Set up result
@@ -22,7 +22,7 @@ test_that("Cleaned df contains the right columns",{
 
 test_that("Cleaned df correctly matches municipality codes", {
   expect_equal(res[which(res[,"Average selling price"] == 22222),
-                   "municipality"], "Mordor")
+                   "municipality"], "Minas Morgul")
   expect_length(res[which(res[,"municipality"] == "Duckstad"),
                     "Average selling price"], 3)
 })
