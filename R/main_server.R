@@ -8,7 +8,7 @@
 #' }
 #' @import shiny
 #' @noRd
-main_server <- function(housing_data) {
+main_server <- function(housing_data, housing_price) {
   function(input, output, session) {
     dropdown_box_graph_server(
       "housing_stock",
@@ -17,5 +17,13 @@ main_server <- function(housing_data) {
       housing_data,
       "municipality",
       line_graph_server)
-    }
+
+    dropdown_box_graph_server(
+      "housing_price",
+      "year",
+      "Average selling price",
+      housing_price,
+      "municipality",
+      line_graph_server)
+  }
 }
