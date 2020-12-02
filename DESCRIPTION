@@ -31,4 +31,7 @@ Imports:
     stats,
     readxl,
     utils,
-    rlang
+    rlang,
+    lubridate,
+    tibble,
+    tidyr
