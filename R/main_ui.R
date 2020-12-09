@@ -41,7 +41,7 @@ main_ui  <- function(housing_data, housing_price) {
         type = "text/css")
     ),
     tabItems(
-      tabItem(tabName = "Intro", "General overview of the dashboard"),
+      tabItem(tabName = "Intro", "General information"),
       tabItem("Acc", "Accountability info"),
       tabItem("housingstock",
               shiny::fluidRow(
