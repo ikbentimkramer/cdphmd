@@ -23,7 +23,7 @@ main_ui  <- function(housing_data, housing_price) {
                menuSubItem("Housing price", tabName = "housingprice", icon = icon("dollar-sign")),
                menuSubItem("Migration", tabName = "migration", icon = icon("people-carry"))),
       menuItem("Subjective data", tabName = "subdata",
-               menuSubItem("Factor 1", tabName = "fac1"),
+               menuSubItem("Satisfaction", tabName = "satisfaction"),
                menuSubItem("Factor 2", tabName = "fac2")
       )
     )
@@ -65,7 +65,7 @@ main_ui  <- function(housing_data, housing_price) {
               ),
               ),
       tabItem("migration", "info about the migration"),
-      tabItem("fac1", "txt1"),
+      tabItem("satisfaction", "Woononderzoek"),
       tabItem("fac2", "txt2")
     )
   )
