@@ -32,4 +32,7 @@ Imports:
     readxl,
     utils,
     rlang,
-    leaflet
+    leaflet,
+    tibble,
+    htmltools,
+    sf

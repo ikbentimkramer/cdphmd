@@ -15,7 +15,12 @@ codes_df <- data.frame(
 res <- clean_housing_stock_data(df,codes_df)
 
 test_that("Cleaned df contains the right columns",{
-  col_names <- c("year", "housing stock", "province", "municipality")
+  col_names <- c(
+    "year",
+    "housing stock",
+    "province",
+    "municipality",
+    "GemeentecodeGM")
   expect_true(all(col_names %in% names(res)))
   expect_true(all(names(res) %in% col_names))
 })

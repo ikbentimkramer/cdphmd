@@ -3,6 +3,7 @@
 #' @param data_string A string that tells which data to get. Options
 #'   are: housing_data for housing stock data.
 #' @return a data frame containing relevant data
+#' @importFrom sf st_read
 #' @noRd
 get_data <- function (data_string) {
   cache_path <- file.path(getwd(), "cache")
