@@ -1,16 +1,18 @@
 #' Server for housing data map
 #'
 #' @param id Shiny id
+#' @param mapdata A sf object of municipalities in the Netherlands
+#' @param housing_data A tibble with municipality codes and housing stock data
 #' @return A shiny module server
 #'
 #' @importFrom tibble as_tibble
 #' @importFrom htmltools HTML
 #' @importFrom sf st_sf st_transform
 #' @noRd
-stock_map_server <- function(id) {
-  test <- get_data("municip_map")
+stock_map_server <- function(id, mapdata, housing_data) {
+  test <- mapdata
 
-  df <- get_data("housing_data")
+  df <- housing_data
 
   test <- tibble::as_tibble(test)
   test <- dplyr::left_join(df, test, by = c("municip_code" = "statcode")) %>%
