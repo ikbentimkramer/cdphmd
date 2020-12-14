@@ -15,16 +15,42 @@ main_ui  <- function(housing_data, housing_price) {
   header <- shinydashboard::dashboardHeader(title = constants[["title"]])
 
   sidebar <- shinydashboard::dashboardSidebar(
-    sidebarMenu(
-      menuItem("General Information", tabName = "Intro", icon = icon("info")),
-      menuItem("Accountability", tabName = "Acc"),
-      menuItem("Registered data", icon = icon("chart-line"), tabName = "regdata",
-               menuSubItem("Housing stock", tabName = "housingstock", icon = icon("building")),
-               menuSubItem("Housing price", tabName = "housingprice", icon = icon("dollar-sign")),
-               menuSubItem("Migration", tabName = "migration", icon = icon("people-carry"))),
-      menuItem("Subjective data", tabName = "subdata",
-               menuSubItem("Satisfaction", tabName = "satisfaction"),
-               menuSubItem("Factor 2", tabName = "fac2")
+    shinydashboard::sidebarMenu(
+      shinydashboard::menuItem(
+        "General Information",
+        tabName = "Intro",
+        icon = icon("info")),
+
+      shinydashboard::menuItem(
+        "Accountability",
+        tabName = "Acc"),
+
+      shinydashboard::menuItem(
+        "Registered data",
+        icon = icon("chart-line"),
+        tabName = "regdata",
+        shinydashboard::menuSubItem(
+          "Housing stock",
+          tabName = "housingstock",
+          icon = icon("building")),
+        shinydashboard::menuSubItem(
+          "Housing price",
+          tabName = "housingprice",
+          icon = icon("dollar-sign")),
+        shinydashboard::menuSubItem(
+          "Migration",
+          tabName = "migration",
+          icon = icon("people-carry"))),
+
+      shinydashboard::menuItem(
+        "Subjective data",
+        tabName = "subdata",
+        shinydashboard::menuSubItem(
+          "Satisfaction",
+          tabName = "satisfaction"),
+        shinydashboard::menuSubItem(
+          "Factor 2",
+          tabName = "fac2")
       )
     )
   )
@@ -40,33 +66,48 @@ main_ui  <- function(housing_data, housing_price) {
         rel = "stylesheet",
         type = "text/css")
     ),
-    tabItems(
-      tabItem(tabName = "Intro", "General overview of the dashboard"),
-      tabItem("Acc", "Accountability info"),
-      tabItem("housingstock",
-              shiny::fluidRow(
-                shinydashboard::box(
-                  dropdown_box_graph_ui(
-                    "housing_stock",
-                    line_graph_ui,
-                    "Municipality",
-                    unique(housing_data[,"municipality"])),
-                  title = "Housing stock")
-              )),
-      tabItem("housingprice",
-              shiny::fluidRow(
-                shinydashboard::box(
-                  dropdown_box_graph_ui(
-                    "housing_price",
-                    line_graph_ui,
-                    "Municipality",
-                    unique(housing_price[,"municipality"])),
-                  title = "Average selling price"),
-              ),
-              ),
-      tabItem("migration", "info about the migration"),
-      tabItem("satisfaction", "Woononderzoek"),
-      tabItem("fac2", "txt2")
+    shinydashboard::tabItems(
+      shinydashboard::tabItem(
+        tabName = "Intro",
+        shiny::includeMarkdown(this_pkg("inst/www/md/intro.md"))),
+      shinydashboard::tabItem(
+        tabName = "Acc",
+        shiny::includeMarkdown(this_pkg("www/md/accountability.md"))),
+      shinydashboard::tabItem(
+        "housingstock",
+        shiny::fluidRow(
+          shiny::includeMarkdown(this_pkg("www/md/housingstock.md"))),
+        shiny::fluidRow(
+          shinydashboard::box(
+            dropdown_box_graph_ui(
+              "housing_stock",
+              line_graph_ui,
+              "Municipality",
+              unique(housing_data[,"municipality"])),
+            title = "Housing stock"))),
+      shinydashboard::tabItem(
+        "housingprice",
+        shiny::fluidRow(
+          shiny::includeMarkdown(this_pkg("www/md/housingprice.md"))),
+        shiny::fluidRow(
+          shinydashboard::box(
+            dropdown_box_graph_ui(
+              "housing_price",
+              line_graph_ui,
+              "Municipality",
+              unique(housing_price[,"municipality"])),
+            title = "Average selling price"))),
+      shinydashboard::tabItem(
+        "migration",
+        shiny::fluidRow(
+          shiny::includeMarkdown(this_pkg("www/md/migration.md")))),
+      shinydashboard::tabItem(
+        "satisfaction",
+        shiny::fluidRow(
+          shiny::includeMarkdown(this_pkg("www/md/satisfaction.md")))),
+      shinydashboard::tabItem(
+        "fac2",
+        "txt2")
     )
   )
   shinydashboard::dashboardPage(header, sidebar, body)
