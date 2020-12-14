@@ -41,27 +41,31 @@ main_ui  <- function(housing_data, housing_price) {
         type = "text/css")
     ),
     tabItems(
-      tabItem(tabName = "Intro", "General overview of the dashboard"),
+      tabItem(tabName = "Intro", "General information"),
       tabItem("Acc", "Accountability info"),
       tabItem("housingstock",
-              shiny::fluidRow(
-                shinydashboard::box(
-                  dropdown_box_graph_ui(
-                    "housing_stock",
-                    line_graph_ui,
-                    "Municipality",
-                    unique(housing_data[,"municipality"])),
-                  title = "Housing stock")
-              )),
+        shiny::fluidRow(
+          shinydashboard::box(
+            stock_map_ui(
+              "housing_price_map")),
+
+          shinydashboard::box(
+            dropdown_box_graph_ui(
+              "housing_stock",
+              line_graph_ui,
+              "Municipality",
+              unique(housing_data[,"municipality"])),
+            title = "Housing stock")
+        )),
       tabItem("housingprice",
-              shiny::fluidRow(
-                shinydashboard::box(
-                  dropdown_box_graph_ui(
-                    "housing_price",
-                    line_graph_ui,
-                    "Municipality",
-                    unique(housing_price[,"municipality"])),
-                  title = "Average selling price"),
+        shiny::fluidRow(
+          shinydashboard::box(
+            dropdown_box_graph_ui(
+              "housing_price",
+              line_graph_ui,
+              "Municipality",
+              unique(housing_price[,"municipality"])),
+            title = "Average selling price"),
               ),
               ),
       tabItem("migration", "info about the migration"),
