@@ -20,7 +20,7 @@ stock_map_server <- function(id, df) {
   pal <- colorBin(palette = "Blues", domain = test$`housing stock`, bins = bins)
   
   shiny::moduleServer(id, function(input, output, session) {
-    output$stockmap  <- leaflet::renderLeaflet({
+    output$stmap  <- leaflet::renderLeaflet({
       leaflet(test) %>%
         addPolygons(
           fillColor = ~pal(`housing stock`),
