@@ -52,8 +52,9 @@ get_data <- function (data_string) {
       dplyr::filter(.data$string == data_string)
     stopifnot(nrow(matches) > 0)
     res <- matches %>%
-      dplyr::pull(expression) %>%
-      eval()
+      dplyr::pull(expression)
+    res <- eval(res[[1]])
     saveRDS(res, data_path)
+    res
   }
 }
