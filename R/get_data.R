@@ -27,6 +27,17 @@ get_data <- function (data_string) {
     saveRDS(res, data_path)
     return(res)
   }
+  if (data_string == "municip_map") {
+    res <- sf::st_read(
+      paste0(
+        "https://geodata.nationaalgeoregister.nl/",
+        "cbsgebiedsindelingen/wfs?service=wfs&version=2.0.0",
+        "&request=getFeature",
+        "&typenames=cbsgebiedsindelingen:cbs_gemeente_2019_gegeneraliseerd",
+        "&outputFormat=json"))
+    saveRDS(res, data_path)
+    return(res)
+  }
   stop(paste0("unknown data_string: ", data_string))
 }
 

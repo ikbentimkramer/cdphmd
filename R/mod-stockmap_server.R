@@ -1,5 +1,5 @@
-stock_map_server <- function(id, df) {
-  test <- sf::st_read("https://geodata.nationaalgeoregister.nl/cbsgebiedsindelingen/wfs?service=wfs&version=2.0.0&request=getFeature&typenames=cbsgebiedsindelingen:cbs_gemeente_2019_gegeneraliseerd&outputFormat=json")
+stock_map_server <- function(id) {
+  test <- get_data("municip_map")
 
   df <- get_data("housing_data")
 
