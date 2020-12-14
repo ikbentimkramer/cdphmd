@@ -3,6 +3,7 @@
 #' @param data_string A string that tells which data to get. Options
 #'   are: housing_data for housing stock data.
 #' @return a data frame containing relevant data
+#' @importFrom sf st_read
 #' @importFrom tibble tribble
 #' @import dplyr
 #' @noRd
@@ -17,7 +18,17 @@ get_data <- function (data_string) {
                         clean_housing_price_data(
                           read_housing_price_data(),
                           get_data("municipality"))),
-    "municipality",   quote(read_municipality()))
+    "municipality",   quote(read_municipality()),
+    "municip_map",    quote(
+                       sf::st_read(
+                         paste0(
+                           "https://geodata.nationaalgeoregister.nl/",
+                           "cbsgebiedsindelingen/wfs",
+                           "?service=wfs&version=2.0.0",
+                           "&request=getFeature",
+                           "&typenames=cbsgebiedsindelingen:",
+                           "cbs_gemeente_2019_gegeneraliseerd",
+                           "&outputFormat=json"))))
 
   cache_path <- file.path(getwd(), "cache")
   data_path <- file.path(cache_path, paste0(data_string, ".rds"))
@@ -37,4 +48,3 @@ get_data <- function (data_string) {
     saveRDS(res, data_path)
   }
 }
-

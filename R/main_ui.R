@@ -79,6 +79,8 @@ main_ui  <- function(housing_data, housing_price) {
           shiny::includeMarkdown(this_pkg("www/md/housingstock.md"))),
         shiny::fluidRow(
           shinydashboard::box(
+            stock_map_ui(
+              "housing_price_map")),
             dropdown_box_graph_ui(
               "housing_stock",
               line_graph_ui,
@@ -96,6 +98,7 @@ main_ui  <- function(housing_data, housing_price) {
               line_graph_ui,
               "Municipality",
               unique(housing_price[,"municipality"])),
+
             title = "Average selling price"))),
       shinydashboard::tabItem(
         "migration",
