@@ -12,11 +12,13 @@
 #' @import stringr
 #' @importFrom dplyr left_join
 #' @importFrom rlang .data
+#' @importFrom tidyr spread
 #' @noRd
 
 clean_migration_data <- function(df,codes_df) {
   codes_df <- filter(codes_df, .data$Provincienaam == "Groningen" | .data$Provincienaam == "Drenthe" |
                        .data$Provincienaam == "Friesland")
+ 
   df <- dplyr::left_join(codes_df, df, by = c("GemeentecodeGM" = "Regions"))
   df[["Gemeentecode"]] <- NULL
   df[["GemeentecodeGM"]] <- NULL
@@ -24,13 +26,14 @@ clean_migration_data <- function(df,codes_df) {
   df[["ProvinciecodePV"]] <- NULL
   
   data = data.frame()
-  for (i in 1:42){
+  for (i in 1:nrow(codes_df)){
     x1 = i*6 -5
     y1 = i*6 -4
     data = append(data, slice(df, x1))
     data = append(data, slice(df, y1))
-  }
-  df <- data.frame(matrix(unlist(data), nrow=84, byrow=T),stringsAsFactors=FALSE)
+  } 
+  index <- 2 * nrow(codes_df)
+  df <- data.frame(matrix(unlist(data), nrow=index, byrow=T),stringsAsFactors=FALSE)
   
   df[["X3"]] <- as.integer(stringr::str_extract(df[["X3"]], "^[0-9]{4}"))
   colnames(df)[which(colnames(df) == "X3")] <- "year"
@@ -40,7 +43,7 @@ clean_migration_data <- function(df,codes_df) {
   
   
   
-  df <- spread(df, year, 'Population on 1 January')
+  df <- tidyr::spread(df, year, 'Population on 1 January')
   
   Balance <- c()
   endp <- c()
