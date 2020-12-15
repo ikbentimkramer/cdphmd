@@ -5,9 +5,15 @@
 #' @return a data frame containing relevant data
 #' @importFrom sf st_read
 #' @importFrom tibble tribble
+#' @importFrom haven read_sav
 #' @import dplyr
 #' @noRd
 get_data <- function (data_string) {
+
+  cache_path <- file.path(getwd(), "cache")
+  data_path <- file.path(cache_path, paste0(data_string, ".rds"))
+  woon_file_name <- "WoON2018_e_1.0.sav"
+
   lookup <- tibble::tribble(
     ~string,          ~expression,
     "housing_data",   quote(
@@ -28,10 +34,13 @@ get_data <- function (data_string) {
                            "&request=getFeature",
                            "&typenames=cbsgebiedsindelingen:",
                            "cbs_gemeente_2019_gegeneraliseerd",
-                           "&outputFormat=json"))))
+                           "&outputFormat=json"))),
+    "woon",            quote(
+                         haven::read_sav(
+                           file.path(
+                             cache_path,
+                             woon_file_name))))
 
-  cache_path <- file.path(getwd(), "cache")
-  data_path <- file.path(cache_path, paste0(data_string, ".rds"))
   ## Create cache dir if it does not exist. Without showWarnings =
   ## FALSE it will warn when the directory already exists.
   dir.create(cache_path, showWarnings = FALSE)
@@ -43,8 +52,9 @@ get_data <- function (data_string) {
       dplyr::filter(.data$string == data_string)
     stopifnot(nrow(matches) > 0)
     res <- matches %>%
-      dplyr::pull(expression) %>%
-      eval()
+      dplyr::pull(expression)
+    res <- eval(res[[1]])
     saveRDS(res, data_path)
+    res
   }
 }

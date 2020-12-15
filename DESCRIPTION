@@ -35,4 +35,5 @@ Imports:
     leaflet,
     tibble,
     htmltools,
-    sf
+    sf,
+    haven
