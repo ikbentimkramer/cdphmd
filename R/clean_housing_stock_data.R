@@ -21,7 +21,9 @@ clean_housing_stock_data <- function(df,codes_df) {
   colnames(df)[which(colnames(df) == "InitialStock_1")] <- "housing stock"
   colnames(df)[which(colnames(df) == "Gemeentenaam")] <- "municipality"
   colnames(df)[which(colnames(df) == "Provincienaam")] <- "province"
+  colnames(df)[which(colnames(df) == "GemeentecodeGM")] <- "municip_code"
   df[["year"]] <- as.integer(stringr::str_extract(df[["year"]], "^[0-9]{4}"))
+  df[["Gemeentecode"]] <- NULL
   df[["Provinciecode"]] <- NULL
   df[["ProvinciecodePV"]] <- NULL
   df

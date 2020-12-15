@@ -20,7 +20,7 @@ test_that("Cleaned df contains the right columns",{
     "housing stock",
     "province",
     "municipality",
-    "GemeentecodeGM")
+    "municip_code")
   expect_true(all(col_names %in% names(res)))
   expect_true(all(names(res) %in% col_names))
 })
