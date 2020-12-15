@@ -14,5 +14,13 @@ run  <- function() {
   housing_price <- get_data("housing_price")
   mapdata <- get_data("municip_map")
   woon <- get_data("woon")
-  shiny::shinyApp(main_ui(housing_data, housing_price), main_server(housing_data, housing_price, mapdata))
+  shiny::shinyApp(
+    main_ui(
+      housing_data,
+      housing_price),
+    main_server(
+      housing_data,
+      housing_price,
+      mapdata,
+      woon))
 }

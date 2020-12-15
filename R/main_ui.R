@@ -107,7 +107,10 @@ main_ui  <- function(housing_data, housing_price) {
       shinydashboard::tabItem(
         "satisfaction",
         shiny::fluidRow(
-          shiny::includeMarkdown(this_pkg("www/md/satisfaction.md")))),
+          shiny::includeMarkdown(this_pkg("www/md/satisfaction.md"))),
+        shiny::fluidRow(
+          shinydashboard::box(
+          barplot_ui("satisfaction1")))),
       shinydashboard::tabItem(
         "fac2",
         "txt2")))
