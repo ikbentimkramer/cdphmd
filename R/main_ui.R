@@ -86,7 +86,7 @@ main_ui  <- function(housing_data, housing_price) {
               line_graph_ui,
               "Municipality",
               unique(housing_data[,"municipality"])),
-            title = "Housing stock"))),
+            title = "Housing stock")),
       shinydashboard::tabItem(
         "housingprice",
         shiny::fluidRow(
@@ -110,9 +110,7 @@ main_ui  <- function(housing_data, housing_price) {
           shiny::includeMarkdown(this_pkg("www/md/satisfaction.md")))),
       shinydashboard::tabItem(
         "fac2",
-        "txt2")
-    )
-  )
+        "txt2")))
   shinydashboard::dashboardPage(header, sidebar, body)
 }
 
