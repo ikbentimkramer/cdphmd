@@ -27,8 +27,13 @@ main_server <- function(housing_data, housing_price, mapdata) {
       line_graph_server)
 
     stock_map_server(
-      "housing_price_map",
+      "housing_stock_map",
       mapdata,
       housing_data)
+    
+    price_map_server(
+      "housing_price_map",
+      mapdata,
+      housing_price)
   }
 }
