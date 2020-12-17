@@ -12,7 +12,6 @@
 #' @import stringr
 #' @importFrom dplyr left_join
 #' @importFrom rlang .data
-#' @importFrom tidyr spread
 #' @noRd
 
 clean_migration_data <- function(df,codes_df) {
