@@ -78,20 +78,22 @@ main_ui  <- function(housing_data, housing_price) {
         shiny::fluidRow(
           shiny::includeMarkdown(this_pkg("www/md/housingstock.md"))),
         shiny::fluidRow(
+          shiny::splitLayout(cellWidths = c("50%", "50%"),
           shinydashboard::box(
             stock_map_ui(
               "housing_stock_map")),
+          shinydashboard::box(
             dropdown_box_graph_ui(
               "housing_stock",
               line_graph_ui,
               "Municipality",
-              unique(housing_data[,"municipality"])),
-            title = "Housing stock")),
+              unique(housing_data[,"municipality"])))))),
       shinydashboard::tabItem(
         "housingprice",
         shiny::fluidRow(
           shiny::includeMarkdown(this_pkg("www/md/housingprice.md"))),
         shiny::fluidRow(
+          shiny::splitLayout(cellWidths = c("50%", "50%"),
           shinydashboard::box(
             price_map_ui(
               "housing_price_map")),
@@ -99,8 +101,7 @@ main_ui  <- function(housing_data, housing_price) {
               "housing_price",
               line_graph_ui,
               "Municipality",
-              unique(housing_price[,"municipality"])),
-            title = "Average selling price")),
+              unique(housing_price[,"municipality"]))))),
       shinydashboard::tabItem(
         "migration",
         shiny::fluidRow(
