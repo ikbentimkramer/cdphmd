@@ -12,9 +12,11 @@
 #' @import stringr
 #' @importFrom dplyr left_join
 #' @importFrom rlang .data
+#' @importFrom tidyr spread
 #' @noRd
 
 clean_migration_data <- function(df,codes_df) {
+  year <- NULL
   codes_df <- filter(codes_df, .data$Provincienaam == "Groningen" | .data$Provincienaam == "Drenthe" |
                        .data$Provincienaam == "Friesland")
  

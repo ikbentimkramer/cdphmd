@@ -31,4 +31,5 @@ Imports:
     stats,
     readxl,
     utils,
-    rlang
+    rlang,
+    tidyr
