@@ -8,6 +8,6 @@
 barplot_ui <- function (id) {
   ns <- shiny::NS(id)
   shiny::tagList(
-    plotly::plotlyOutput(ns("barplot"))
+    plotly::plotlyOutput(ns("barplot"), height = "500px")
   )
 }

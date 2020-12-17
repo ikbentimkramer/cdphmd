@@ -32,29 +32,44 @@ barplot_server <- function(id, x, y, df) {
 
   shiny::moduleServer(id, function(input, output, session) {
     output$barplot  <- plotly::renderPlotly({
-  #    if (shiny::is.reactive(df)) {
-  #      df <- df()
-  #    }
+      if (shiny::is.reactive(df)) {
+        df <- df()
+      }
+      df <- df %>%
+        dplyr::mutate(
+          !!y_sym := forcats::fct_rev(haven::as_factor(!!y_sym)),
+          !!x_sym := haven::as_factor(!!x_sym)) %>%
+        dplyr::group_by(!!y_sym, !!x_sym) %>%
+        dplyr::summarize(n = dplyr::n(), .groups = "keep") %>%
+        dplyr::ungroup()
+
       plot <- ggplot2::ggplot(
         df,
         ggplot2::aes(
-          y = forcats::fct_rev(haven::as_factor(!!y_sym)),
-          fill = haven::as_factor(!!x_sym))) +
+          y = !!y_sym,
+          x = .data$n,
+          fill = !!x_sym,
+          text = paste0(
+            as.character(!!x_sym),
+            ": ",
+            .data$n,
+            dplyr::if_else(
+              .data$n == 1,
+              " persoon",
+              " personen")))) +
         ggplot2::geom_bar(
-          ggplot2::aes(
-            x = round(100 * ..count../sum(..count..), 1)),
+          stat = "identity",
           position = ggplot2::position_dodge2(padding = 0.1),
           orientation = "y") +
         ggplot2::ylab(ggplot2::element_blank()) +
-        ggplot2::xlab("%") +
+        ggplot2::xlab("Aantal") +
         ggplot2::scale_fill_discrete(type = cbs_colors_cold) +
         ggplot2::scale_x_continuous(expand = c(0,0.5)) +
         ggplot2::theme(
-          legend.position = "bottom",
+          legend.position = "left",
           legend.justification = c(1,0.5),
           legend.box.spacing = ggplot2::unit(5, "pt"),
           legend.text.align = 0,
-          legend.direction = "horizontal",
           legend.background = ggplot2::element_rect(fill = "#FFFFFF"),
           legend.box.background = ggplot2::element_blank(),
           legend.box.margin = ggplot2::margin(0, 0, 0, -250),
@@ -74,7 +89,23 @@ barplot_server <- function(id, x, y, df) {
           panel.grid.major.y = ggplot2::element_blank(),
           panel.grid.minor.y = ggplot2::element_blank())
 
-      plotly::ggplotly(plot)
+        fig <- plotly::ggplotly(plot, tooltip = c("text"))
+        fig <- fig %>%
+          plotly::layout(
+            xaxis = list(
+              fixedrange = TRUE,
+              tickfont = list(size = 10)),
+            yaxis = list(
+              fixedrange = TRUE,
+              tickfont = list(size =10)),
+            legend = list(
+              x = -0.1,
+              y = 100,
+              orientation = "h",
+              font = list(size = 10))) %>%
+          plotly::config(
+            displayModeBar = FALSE)
+        fig
     })
   })
 }
