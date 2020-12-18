@@ -49,8 +49,8 @@ main_ui  <- function(housing_data, housing_price, woon) {
           "Satisfaction",
           tabName = "satisfaction"),
         shinydashboard::menuSubItem(
-          "Factor 2",
-          tabName = "fac2")
+          "Desire to move",
+          tabName = "move_desire")
       )
     )
   )
@@ -117,8 +117,15 @@ main_ui  <- function(housing_data, housing_price, woon) {
               "COROP-regio",
               unique(woon[,"coropchar"]))))),
       shinydashboard::tabItem(
-        "fac2",
-        "txt2")))
+        "move_desire",
+        shiny::fluidRow(
+          shinydashboard::box(
+            title = "Wilt u binnen twee jaar verhuizen?",
+            dropdown_box_graph_ui(
+              "move_desire",
+              barplot_ui,
+              "COROP-regio",
+              unique(woon[,"coropchar"])))))))
   shinydashboard::dashboardPage(header, sidebar, body)
 }
 
