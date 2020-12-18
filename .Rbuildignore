@@ -3,4 +3,3 @@
 ^\.travis\.yml$
 ^\.covrignore$
 ^cache$
-^test-map_migration.R
