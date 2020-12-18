@@ -8,7 +8,7 @@
 #' }
 #' @import shiny
 #' @noRd
-main_server <- function(housing_data, housing_price, mapdata) {
+main_server <- function(housing_data, housing_price, mapdata, woon) {
   function(input, output, session) {
     dropdown_box_graph_server(
       "housing_stock",
@@ -30,5 +30,11 @@ main_server <- function(housing_data, housing_price, mapdata) {
       "housing_price_map",
       mapdata,
       housing_data)
+
+    barplot_server(
+      "satisfaction1",
+      "tevrstr",
+      "leeftijd",
+      woon)
   }
 }

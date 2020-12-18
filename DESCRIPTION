@@ -36,4 +36,6 @@ Imports:
     tibble,
     htmltools,
     sf,
-    haven
+    haven,
+    ggplot2,
+    forcats

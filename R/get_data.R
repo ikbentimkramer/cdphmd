@@ -39,7 +39,8 @@ get_data <- function (data_string) {
                          haven::read_sav(
                            file.path(
                              cache_path,
-                             woon_file_name))))
+                             woon_file_name)) %>%
+                           dplyr::filter(.data$ldl == 1)))
 
   ## Create cache dir if it does not exist. Without showWarnings =
   ## FALSE it will warn when the directory already exists.
