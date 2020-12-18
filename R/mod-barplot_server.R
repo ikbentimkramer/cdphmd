@@ -40,16 +40,26 @@ barplot_server <- function(id, x, y, df) {
       df <- df %>%
         dplyr::mutate(
           !!y_sym := forcats::fct_rev(haven::as_factor(!!y_sym)),
-          !!x_sym := haven::as_factor(!!x_sym)) %>%
+          !!x_sym := haven::as_factor(!!x_sym))
+      amounts <- df %>%
         dplyr::group_by(!!y_sym, !!x_sym) %>%
         dplyr::summarize(n = dplyr::n(), .groups = "keep") %>%
         dplyr::ungroup()
+      totals <- df %>%
+        dplyr::group_by(!!y_sym) %>%
+        dplyr::summarize(within_n = dplyr::n(), .groups = "keep") %>%
+        dplyr::ungroup()
+      df <- dplyr::left_join(
+        amounts,
+        totals,
+        by = c(as.character(y_sym))) %>%
+        dplyr::mutate(percent = 100 * (.data$n / .data$within_n))
 
       plot <- ggplot2::ggplot(
         df,
         ggplot2::aes(
           y = !!y_sym,
-          x = .data$n,
+          x = .data$percent,
           fill = !!x_sym,
           text = paste0(
             as.character(!!x_sym),
@@ -58,13 +68,18 @@ barplot_server <- function(id, x, y, df) {
             dplyr::if_else(
               .data$n == 1,
               " persoon",
-              " personen")))) +
+              " personen"),
+              " (",
+              round(.data$percent, 2),
+              "%)"))) +
         ggplot2::geom_bar(
           stat = "identity",
-          position = ggplot2::position_dodge2(padding = 0.1),
+          position = ggplot2::position_dodge2(
+            padding = 0.1,
+            preserve = "single"),
           orientation = "y") +
         ggplot2::ylab(ggplot2::element_blank()) +
-        ggplot2::xlab("Aantal") +
+        ggplot2::xlab("%") +
         ggplot2::scale_fill_discrete(type = cbs_colors_cold) +
         ggplot2::scale_x_continuous(expand = c(0,0.5)) +
         ggplot2::theme(

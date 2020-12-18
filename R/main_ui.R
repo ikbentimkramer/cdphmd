@@ -9,7 +9,7 @@
 #' @import shiny
 #' @import shinydashboard
 #' @noRd
-main_ui  <- function(housing_data, housing_price) {
+main_ui  <- function(housing_data, housing_price, woon) {
   constants <- list(
     title = "CDPHMD")
   header <- shinydashboard::dashboardHeader(title = constants[["title"]])
@@ -49,8 +49,11 @@ main_ui  <- function(housing_data, housing_price) {
           "Satisfaction",
           tabName = "satisfaction"),
         shinydashboard::menuSubItem(
-          "Factor 2",
-          tabName = "fac2")
+          "Desire to move",
+          tabName = "move_desire"),
+        shinydashboard::menuSubItem(
+          "Vacancy rate",
+          tabName = "vacancy")
       )
     )
   )
@@ -111,10 +114,27 @@ main_ui  <- function(housing_data, housing_price) {
         shiny::fluidRow(
           shinydashboard::box(
             title = "Hoe tevreden bent u met de regio waar in u woont?",
-            barplot_ui("satisfaction1")))),
+            dropdown_box_graph_ui(
+              "satisfaction1",
+              barplot_ui,
+              "COROP-regio",
+              unique(woon[,"coropchar"]))))),
       shinydashboard::tabItem(
-        "fac2",
-        "txt2")))
+        "move_desire",
+        shiny::fluidRow(
+          shinydashboard::box(
+            title = "Wilt u binnen twee jaar verhuizen?",
+            dropdown_box_graph_ui(
+              "move_desire",
+              barplot_ui,
+              "COROP-regio",
+              unique(woon[,"coropchar"]))))),
+      shinydashboard::tabItem(
+        "vacancy",
+        shiny::fluidRow(
+          shinydashboard::box(
+            title = "Hoe is de leegstand van woningen in uw buurt in de afgelopen vijf jaar veranderd?",
+            barplot_ui("vacancy"))))))
   shinydashboard::dashboardPage(header, sidebar, body)
 }
 

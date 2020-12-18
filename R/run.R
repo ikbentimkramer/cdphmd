@@ -17,7 +17,8 @@ run  <- function() {
   shiny::shinyApp(
     main_ui(
       housing_data,
-      housing_price),
+      housing_price,
+      woon),
     main_server(
       housing_data,
       housing_price,
