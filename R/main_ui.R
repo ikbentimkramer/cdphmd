@@ -78,22 +78,21 @@ main_ui  <- function(housing_data, housing_price, woon) {
         shiny::includeMarkdown(this_pkg("www/md/accountability.md"))),
       shinydashboard::tabItem(
         "housingstock",
-        shiny::fluidRow(
-          shiny::includeMarkdown(this_pkg("www/md/housingstock.md"))),
+          shiny::includeMarkdown(this_pkg("www/md/housingstock.md")),
         shiny::fluidRow(
           shinydashboard::box(
             stock_map_ui(
               "housing_price_map")),
+          shinydashboard::box(
             dropdown_box_graph_ui(
               "housing_stock",
               line_graph_ui,
               "Municipality",
               unique(housing_data[,"municipality"])),
-            title = "Housing stock")),
+            title = "Housing stock"))),
       shinydashboard::tabItem(
         "housingprice",
-        shiny::fluidRow(
-          shiny::includeMarkdown(this_pkg("www/md/housingprice.md"))),
+          shiny::includeMarkdown(this_pkg("www/md/housingprice.md")),
         shiny::fluidRow(
           shinydashboard::box(
             dropdown_box_graph_ui(
@@ -105,12 +104,10 @@ main_ui  <- function(housing_data, housing_price, woon) {
             title = "Average selling price"))),
       shinydashboard::tabItem(
         "migration",
-        shiny::fluidRow(
-          shiny::includeMarkdown(this_pkg("www/md/migration.md")))),
+          shiny::includeMarkdown(this_pkg("www/md/migration.md"))),
       shinydashboard::tabItem(
         "satisfaction",
-        shiny::fluidRow(
-          shiny::includeMarkdown(this_pkg("www/md/satisfaction.md"))),
+          shiny::includeMarkdown(this_pkg("www/md/satisfaction.md")),
         shiny::fluidRow(
           shinydashboard::box(
             title = "Hoe tevreden bent u met de regio waar in u woont?",
