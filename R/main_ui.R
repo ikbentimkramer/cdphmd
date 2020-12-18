@@ -50,7 +50,10 @@ main_ui  <- function(housing_data, housing_price, woon) {
           tabName = "satisfaction"),
         shinydashboard::menuSubItem(
           "Desire to move",
-          tabName = "move_desire")
+          tabName = "move_desire"),
+        shinydashboard::menuSubItem(
+          "Vacancy rate",
+          tabName = "vacancy")
       )
     )
   )
@@ -125,7 +128,13 @@ main_ui  <- function(housing_data, housing_price, woon) {
               "move_desire",
               barplot_ui,
               "COROP-regio",
-              unique(woon[,"coropchar"])))))))
+              unique(woon[,"coropchar"]))))),
+      shinydashboard::tabItem(
+        "vacancy",
+        shiny::fluidRow(
+          shinydashboard::box(
+            title = "Hoe is de leegstand van woningen in uw buurt in de afgelopen vijf jaar veranderd?",
+            barplot_ui("vacancy"))))))
   shinydashboard::dashboardPage(header, sidebar, body)
 }
 
