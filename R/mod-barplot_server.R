@@ -61,7 +61,9 @@ barplot_server <- function(id, x, y, df) {
               " personen")))) +
         ggplot2::geom_bar(
           stat = "identity",
-          position = ggplot2::position_dodge2(padding = 0.1),
+          position = ggplot2::position_dodge2(
+            padding = 0.1,
+            preserve = "single"),
           orientation = "y") +
         ggplot2::ylab(ggplot2::element_blank()) +
         ggplot2::xlab("Aantal") +
