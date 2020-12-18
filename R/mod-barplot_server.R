@@ -12,12 +12,14 @@
 #' @import shiny
 #' @import plotly
 #' @import stringr
-#' @import ggplot2
+#' @importFrom ggplot2 ggplot aes geom_bar position_dodge2 ylab
+#'   element_blank xlab scale_fill_discrete scale_x_continuous theme
+#'   unit element_rect margin element_line
 #' @importFrom stats as.formula
 #' @importFrom forcats fct_rev
 #' @importFrom haven as_factor
 #' @importFrom rlang sym
-#' @importFrom rlang !!
+#' @importFrom rlang !! :=
 #' @noRd
 barplot_server <- function(id, x, y, df) {
   cbs_colors_cold <- c(
