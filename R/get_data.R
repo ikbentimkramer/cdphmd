@@ -40,7 +40,10 @@ get_data <- function (data_string) {
                            file.path(
                              cache_path,
                              woon_file_name)) %>%
-                           dplyr::filter(.data$ldl == 1)))
+                           dplyr::filter(.data$ldl == 1) %>%
+                           dplyr::mutate(
+                             coropchar = as.character(
+                               haven::as_factor(.data$corop)))))
 
   ## Create cache dir if it does not exist. Without showWarnings =
   ## FALSE it will warn when the directory already exists.

@@ -31,10 +31,13 @@ main_server <- function(housing_data, housing_price, mapdata, woon) {
       mapdata,
       housing_data)
 
-    barplot_server(
+    dropdown_box_graph_server(
       "satisfaction1",
       "tevrstr",
       "leeftijd",
-      woon)
+      woon,
+      "coropchar",
+      barplot_server)
+
   }
 }

@@ -9,7 +9,7 @@
 #' @import shiny
 #' @import shinydashboard
 #' @noRd
-main_ui  <- function(housing_data, housing_price) {
+main_ui  <- function(housing_data, housing_price, woon) {
   constants <- list(
     title = "CDPHMD")
   header <- shinydashboard::dashboardHeader(title = constants[["title"]])
@@ -111,7 +111,11 @@ main_ui  <- function(housing_data, housing_price) {
         shiny::fluidRow(
           shinydashboard::box(
             title = "Hoe tevreden bent u met de regio waar in u woont?",
-            barplot_ui("satisfaction1")))),
+            dropdown_box_graph_ui(
+              "satisfaction1",
+              barplot_ui,
+              "COROP-regio",
+              unique(woon[,"coropchar"]))))),
       shinydashboard::tabItem(
         "fac2",
         "txt2")))
