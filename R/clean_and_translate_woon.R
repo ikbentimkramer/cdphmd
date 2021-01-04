@@ -8,7 +8,14 @@
 #' @noRd
 clean_and_translate_woon <- function() {
   get_data("woon") %>%
-    dplyr::select(ldl, corop, leeftijd, tevrstr, verhwens, verleegst) %>%
+    dplyr::select(
+      ldl,
+      corop,
+      leeftijd,
+      tevrstr,
+      verhwens,
+      verleegst,
+      coropchar) %>%
     labelled::set_variable_labels(
       leeftijd = "Age respondent (7 groups)",
       tevrstr = "How satisfied are you with the region where you are living?",
@@ -38,11 +45,11 @@ clean_and_translate_woon <- function() {
         `I have already found another accommodation / home` = 5,
         `Refuses` = 8),
       verleegst = c(
-        `Veel meer geworden` = 1,
-        `Meer geworden` = 2,
-        `Evenveel gebleven` = 3,
-        `Minder geworden` = 4,
-        `Veel minder geworden` = 5,
-        `Weet niet` = 6,
+        `Has become much more` = 1,
+        `Has become more` = 2,
+        `Stayed the same` = 3,
+        `Has become less` = 4,
+        `Has become much less` = 5,
+        `Do not know` = 6,
         `Refuses` = 8))
 }
