@@ -38,4 +38,5 @@ Imports:
     sf,
     haven,
     ggplot2,
-    forcats
+    forcats,
+    labelled
