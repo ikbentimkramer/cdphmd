@@ -43,7 +43,8 @@ get_data <- function (data_string) {
                            dplyr::filter(.data$ldl == 1) %>%
                            dplyr::mutate(
                              coropchar = as.character(
-                               haven::as_factor(.data$corop)))))
+                               haven::as_factor(.data$corop)))),
+    "woon_translated", quote(clean_and_translate_woon()))
 
   ## Create cache dir if it does not exist. Without showWarnings =
   ## FALSE it will warn when the directory already exists.
