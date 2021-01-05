@@ -40,3 +40,5 @@ Imports:
     ggplot2,
     forcats,
     labelled
+URL: https://github.com/ikbentimkramer/cdphmd
+BugReports: https://github.com/ikbentimkramer/cdphmd/issues
