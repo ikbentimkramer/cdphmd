@@ -1,7 +1,9 @@
 #' Start Dashboard
 #'
 #' This function starts the dashboard.
+#'
 #' @param woondata The path to the woon data file
+#'
 #' @examples
 #' \dontrun{
 #' run()
