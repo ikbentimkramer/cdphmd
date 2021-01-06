@@ -49,7 +49,8 @@ get_data <- function (data_string) {
      "migration_data",  quote(
                           clean_migration_data(
                             read_migration_data(),
-                            read_municipality())))
+                            read_municipality())),
+    "woon_translated", quote(clean_and_translate_woon()))
 
   ## Create cache dir if it does not exist. Without showWarnings =
   ## FALSE it will warn when the directory already exists.

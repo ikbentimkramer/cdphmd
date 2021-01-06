@@ -39,6 +39,7 @@ Imports:
     sf,
     haven,
     ggplot2,
-    forcats
+    forcats,
+    labelled
 URL: https://github.com/ikbentimkramer/cdphmd
 BugReports: https://github.com/ikbentimkramer/cdphmd/issues
