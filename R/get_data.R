@@ -1,7 +1,9 @@
 #' Get Data From Cache or Data Source
 #'
 #' @param data_string A string that tells which data to get. Options
-#'   are: housing_data for housing stock data.
+#'   are: housing_data for housing stock data,
+#'        housing_price for the average selling price data,
+#'        migration_data for the migration data.
 #' @return a data frame containing relevant data
 #' @importFrom sf st_read
 #' @importFrom tibble tribble
@@ -44,6 +46,10 @@ get_data <- function (data_string) {
                            dplyr::mutate(
                              coropchar = as.character(
                                haven::as_factor(.data$corop)))),
+     "migration_data",  quote(
+                          clean_migration_data(
+                            read_migration_data(),
+                            read_municipality())),
     "woon_translated", quote(clean_and_translate_woon()))
 
   ## Create cache dir if it does not exist. Without showWarnings =

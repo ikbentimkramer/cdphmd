@@ -32,6 +32,7 @@ Imports:
     readxl,
     utils,
     rlang,
+    tidyr,
     leaflet,
     tibble,
     htmltools,
