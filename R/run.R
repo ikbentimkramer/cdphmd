@@ -15,7 +15,7 @@ run  <- function(woondata = file.path(getwd(), "cache", "WoON2018_e_1.0.sav")) {
   housing_data <- get_data("housing_data")
   housing_price <- get_data("housing_price")
   mapdata <- get_data("municip_map")
-  woon <- get_data("woon", woonpath = woondata)
+  woon <- get_data("woon_translated", woonpath = woondata)
   shiny::shinyApp(
     main_ui(
       housing_data,

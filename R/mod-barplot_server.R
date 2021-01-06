@@ -67,8 +67,8 @@ barplot_server <- function(id, x, y, df) {
             .data$n,
             dplyr::if_else(
               .data$n == 1,
-              " persoon",
-              " personen"),
+              " respondent",
+              " respondents"),
               " (",
               round(.data$percent, 2),
               "%)"))) +
