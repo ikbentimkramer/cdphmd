@@ -2,7 +2,7 @@
 # cdphmd
 
 <!-- badges: start -->
-[![Travis build status](https://travis-ci.org/ikbentimkramer/cdphmd.svg?branch=master)](https://travis-ci.org/ikbentimkramer/cdphmd)
+[![R build status](https://github.com/ikbentimkramer/cdphmd/workflows/R-CMD-check/badge.svg)](https://github.com/ikbentimkramer/cdphmd/actions)
 [![codecov](https://codecov.io/gh/ikbentimkramer/cdphmd/branch/master/graph/badge.svg?token=I9K0S5EY54)](https://codecov.io/gh/ikbentimkramer/cdphmd)
 <!-- badges: end -->
 

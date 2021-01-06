@@ -18,7 +18,7 @@ stock_map_server <- function(id, mapdata, housing_data) {
   test <- dplyr::left_join(df, test, by = c("municip_code" = "statcode")) %>%
     dplyr::filter(.data$year == 2019)
   test <- sf::st_sf(as.data.frame(test, stringsAsFactors = FALSE))
-  test <- sf::st_transform(test, "+init=epsg:4326")
+  test <- sf::st_transform(test, crs = 4326)
 
   bins <- c(1000, 5000, 10000, 15000, 20000, 25000, 35000, 60000, 130000)
 

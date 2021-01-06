@@ -32,8 +32,14 @@ Imports:
     readxl,
     utils,
     rlang,
+    tidyr,
     leaflet,
     tibble,
     htmltools,
     sf,
-    haven
+    haven,
+    ggplot2,
+    forcats,
+    labelled
+URL: https://github.com/ikbentimkramer/cdphmd
+BugReports: https://github.com/ikbentimkramer/cdphmd/issues
