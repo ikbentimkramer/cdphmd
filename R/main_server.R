@@ -8,7 +8,7 @@
 #' }
 #' @import shiny
 #' @noRd
-main_server <- function(housing_data, housing_price, mapdata) {
+main_server <- function(housing_data, housing_price, mapdata, woon) {
   function(input, output, session) {
     dropdown_box_graph_server(
       "housing_stock",
@@ -17,7 +17,7 @@ main_server <- function(housing_data, housing_price, mapdata) {
       housing_data,
       "municipality",
       line_graph_server)
-
+    
     dropdown_box_graph_server(
       "housing_price",
       "year",
@@ -25,16 +25,12 @@ main_server <- function(housing_data, housing_price, mapdata) {
       housing_price,
       "municipality",
       line_graph_server)
-
+    
     stock_map_server(
-      "housing_stock_map",
+      "housing_price_map",
       mapdata,
       housing_data)
     
-    price_map_server(
-      "housing_price_map",
-      mapdata,
-      housing_price)
     dropdown_box_graph_server(
       "satisfaction1",
       "tevrstr",
@@ -56,5 +52,11 @@ main_server <- function(housing_data, housing_price, mapdata) {
       "verleegst",
       "corop",
       woon)
+    
+    price_map_server(
+      "housing_price_map",
+      mapdata,
+      housing_price)
+    
   }
 }
