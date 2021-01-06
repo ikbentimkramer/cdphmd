@@ -24,7 +24,7 @@ The visualizations regarding the registered indicators range from the years 2015
 
 ## Colour schemes used
  
-To be added later
+All our maps are using the colour palette provided by the "viridis" R package. This is known to be a printer-friendly, perceptually uniform and easy to read by those with colorblindness.
 
 ## Legal accountability
 
