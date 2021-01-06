@@ -95,7 +95,7 @@ main_ui  <- function(housing_data, housing_price, woon) {
         "housingprice",
           shiny::includeMarkdown(this_pkg("www/md/housingprice.md")),
         shiny::fluidRow(
-          shiny::splitLayout(cellWidths = c("50%", "50%"),
+          shiny::splitLayout(cellWidths = c("50%", "50%")),
           shinydashboard::box(
             price_map_ui(
               "housing_price_map")),
