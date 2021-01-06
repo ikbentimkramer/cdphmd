@@ -4,7 +4,10 @@
 \alias{run}
 \title{Start Dashboard}
 \usage{
-run()
+run(woondata = file.path(getwd(), "cache", "WoON2018_e_1.0.sav"))
+}
+\arguments{
+\item{woondata}{The path to the woon data file}
 }
 \description{
 This function starts the dashboard.

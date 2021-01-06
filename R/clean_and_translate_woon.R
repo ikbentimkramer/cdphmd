@@ -1,13 +1,16 @@
 #' Clean and Translate Woon Survey Data
 #'
 #' Removes superfluous columns and translates labels to English.
+#'
+#' @param woonpath path to woon survey data
+#'
 #' @return a dataframe with labelled vectors
 #'
 #' @importFrom dplyr select
 #' @importFrom labelled set_variable_labels set_value_labels
 #' @noRd
-clean_and_translate_woon <- function() {
-  get_data("woon") %>%
+clean_and_translate_woon <- function(woonpath = "") {
+  get_data("woon", woonpath = woonpath) %>%
     dplyr::select(
       ldl,
       corop,
