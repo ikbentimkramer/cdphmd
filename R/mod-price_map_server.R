@@ -18,7 +18,7 @@ price_map_server <- function(id, mapdata, housing_price) {
   test <- dplyr::left_join(df, test, by = c("municip_code" = "statcode")) %>%
     dplyr::filter(.data$year == 2019)
   test <- sf::st_sf(as.data.frame(test, stringsAsFactors = FALSE))
-  test <- sf::st_transform(test, "+init=epsg:4326")
+  test <- sf::st_transform(test, crs = 4326)
   
   bins <- c(140000, 180000, 220000, 260000, 300000, 350000, 400000, 450000)
   
