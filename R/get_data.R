@@ -43,7 +43,7 @@ get_data <- function (data_string, woonpath = "") {
                            "&outputFormat=json"))),
     "woon",            quote(
                          haven::read_sav(
-                           woon_path) %>%
+                           woonpath) %>%
                            dplyr::filter(.data$ldl == 1) %>%
                            dplyr::mutate(
                              coropchar = as.character(
@@ -52,7 +52,7 @@ get_data <- function (data_string, woonpath = "") {
                           clean_migration_data(
                             read_migration_data(),
                             read_municipality())),
-    "woon_translated", quote(clean_and_translate_woon()))
+    "woon_translated", quote(clean_and_translate_woon(woonpath)))
 
   ## Create cache dir if it does not exist. Without showWarnings =
   ## FALSE it will warn when the directory already exists.
