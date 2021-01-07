@@ -11,7 +11,7 @@ tab_housingstock_ui <- function(housing_data) {
     shiny::fluidRow(
       shinydashboard::box(
         stock_map_ui(
-          "housing_price_map")),
+          "housing_stock_map")),
       shinydashboard::box(
         dropdown_box_graph_ui(
           "housing_stock",
