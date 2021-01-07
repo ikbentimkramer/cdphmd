@@ -10,6 +10,9 @@ tab_housingprice_ui <- function(housing_price) {
     shiny::includeMarkdown(this_pkg("www/md/housingprice.md")),
     shiny::fluidRow(
       shinydashboard::box(
+        price_map_ui(
+          "housing_price_map")),
+      shinydashboard::box(
         dropdown_box_graph_ui(
           "housing_price",
           line_graph_ui,
