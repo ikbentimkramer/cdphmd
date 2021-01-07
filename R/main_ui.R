@@ -54,7 +54,10 @@ main_ui  <- function(housing_data, housing_price, woon) {
         shinydashboard::menuSubItem(
           "Vacancy rate",
           tabName = "vacancy")
-      )
+      ),
+      shinydashboard::menuItem(
+        "Downloads",
+        tabName = "download")
     )
   )
 
@@ -77,6 +80,10 @@ main_ui  <- function(housing_data, housing_price, woon) {
       shinydashboard::tabItem(
         tabName = "Acc",
         shiny::includeMarkdown(this_pkg("www/md/accountability.md"))),
+      
+      shinydashboard::tabItem(
+        tabName = "download",
+        shiny::includeMarkdown(this_pkg("www/md/download.md"))),
 
       tab_housingstock_ui(housing_data),
 
