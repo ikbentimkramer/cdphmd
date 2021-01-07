@@ -3,18 +3,22 @@
 #' @param data_string A string that tells which data to get. Options
 #'   are: housing_data for housing stock data,
 #'        housing_price for the average selling price data,
-#'        migration_data for the migration data.
+#'        migration_data for the migration data,
+#'        municipality for municipality code data,
+#'        municip_map for municipality level map data,
+#'        woon for woon survey data
+#'        woon_translated for translated woon survey data (incomplete)
+#' @param woonpath Path to woon survey data file
 #' @return a data frame containing relevant data
 #' @importFrom sf st_read
 #' @importFrom tibble tribble
 #' @importFrom haven read_sav
 #' @import dplyr
 #' @noRd
-get_data <- function (data_string) {
+get_data <- function (data_string, woonpath = "") {
 
   cache_path <- file.path(getwd(), "cache")
   data_path <- file.path(cache_path, paste0(data_string, ".rds"))
-  woon_file_name <- "WoON2018_e_1.0.sav"
 
   lookup <- tibble::tribble(
     ~string,          ~expression,
@@ -39,9 +43,7 @@ get_data <- function (data_string) {
                            "&outputFormat=json"))),
     "woon",            quote(
                          haven::read_sav(
-                           file.path(
-                             cache_path,
-                             woon_file_name)) %>%
+                           woonpath) %>%
                            dplyr::filter(.data$ldl == 1) %>%
                            dplyr::mutate(
                              coropchar = as.character(
@@ -50,7 +52,7 @@ get_data <- function (data_string) {
                           clean_migration_data(
                             read_migration_data(),
                             read_municipality())),
-    "woon_translated", quote(clean_and_translate_woon()))
+    "woon_translated", quote(clean_and_translate_woon(woonpath)))
 
   ## Create cache dir if it does not exist. Without showWarnings =
   ## FALSE it will warn when the directory already exists.

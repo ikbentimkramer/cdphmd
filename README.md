@@ -28,7 +28,7 @@ which installs cdphmd
 When you have cdphmd installed, run:
 
 ``` r
-cdphmd::run()
+cdphmd::run(woondata = "path/to/woon_survey_data.sav")
 ```
 
-to start the dashboard.
+where `path/to/woon_survey_data.sav` is the path to your local copy of the WoON survey data (2018). This will start the dashboard.

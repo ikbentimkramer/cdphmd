@@ -73,67 +73,25 @@ main_ui  <- function(housing_data, housing_price, woon) {
       shinydashboard::tabItem(
         tabName = "Intro",
         shiny::includeMarkdown(this_pkg("inst/www/md/intro.md"))),
+
       shinydashboard::tabItem(
         tabName = "Acc",
         shiny::includeMarkdown(this_pkg("www/md/accountability.md"))),
-      shinydashboard::tabItem(
-        "housingstock",
-          shiny::includeMarkdown(this_pkg("www/md/housingstock.md")),
-        shiny::fluidRow(
-          shiny::splitLayout(cellWidths = c("50%", "50%"),
-          shinydashboard::box(
-            stock_map_ui(
-              "housing_stock_map")),
-          shinydashboard::box(
-            dropdown_box_graph_ui(
-              "housing_stock",
-              line_graph_ui,
-              "Municipality",
-              unique(housing_data[,"municipality"])),
-            title = "Housing stock"))),
-      shinydashboard::tabItem(
-        "housingprice",
-          shiny::includeMarkdown(this_pkg("www/md/housingprice.md")),
-        shiny::fluidRow(
-          shiny::splitLayout(cellWidths = c("50%", "50%")),
-          shinydashboard::box(
-            price_map_ui(
-              "housing_price_map")),
-            dropdown_box_graph_ui(
-              "housing_price",
-              line_graph_ui,
-              "Municipality",
-              unique(housing_price[,"municipality"]))))),
+
+      tab_housingstock_ui(housing_data),
+
+      tab_housingprice_ui(housing_price),
+
       shinydashboard::tabItem(
         "migration",
-          shiny::includeMarkdown(this_pkg("www/md/migration.md"))),
-      shinydashboard::tabItem(
-        "satisfaction",
-          shiny::includeMarkdown(this_pkg("www/md/satisfaction.md")),
-        shiny::fluidRow(
-          shinydashboard::box(
-            title = "Hoe tevreden bent u met de regio waar in u woont?",
-            dropdown_box_graph_ui(
-              "satisfaction1",
-              barplot_ui,
-              "COROP-regio",
-              unique(woon[,"coropchar"]))))),
-      shinydashboard::tabItem(
-        "move_desire",
-        shiny::fluidRow(
-          shinydashboard::box(
-            title = "Wilt u binnen twee jaar verhuizen?",
-            dropdown_box_graph_ui(
-              "move_desire",
-              barplot_ui,
-              "COROP-regio",
-              unique(woon[,"coropchar"]))))),
-      shinydashboard::tabItem(
-        "vacancy",
-        shiny::fluidRow(
-          shinydashboard::box(
-            title = "Hoe is de leegstand van woningen in uw buurt in de afgelopen vijf jaar veranderd?",
-            barplot_ui("vacancy"))))))
-  shinydashboard::dashboardPage(header, sidebar, body)
-}
+        shiny::includeMarkdown(this_pkg("www/md/migration.md"))),
+
+      tab_satisfaction_ui(woon),
+
+      tab_move_desire_ui(woon),
+
+      tab_vacancy_ui(woon)))
+
+    shinydashboard::dashboardPage(header, sidebar, body)
+  }
 
