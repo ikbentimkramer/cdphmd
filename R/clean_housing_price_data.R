@@ -15,8 +15,9 @@
 #' @noRd
 
 clean_housing_price_data <- function(df,codes_df) {
-  codes_df <- filter(codes_df, .data$Provincienaam == "Groningen" | .data$Provincienaam == "Drenthe" |
-                       .data$Provincienaam == "Friesland")
+  codes_df <- filter(codes_df, .data$Provincienaam == "Groningen" |
+                                 .data$Provincienaam == "Drenthe" |
+                                 .data$Provincienaam == "Friesland")
   df <- dplyr::left_join(codes_df, df, by = c("GemeentecodeGM" = "RegioS"))
   colnames(df)[which(colnames(df) == "Perioden")] <- "year"
   colnames(df)[which(colnames(df) == "GemiddeldeVerkoopprijs_1")] <- "Average selling price"
@@ -24,7 +25,6 @@ clean_housing_price_data <- function(df,codes_df) {
   colnames(df)[which(colnames(df) == "Provincienaam")] <- "province"
   colnames(df)[which(colnames(df) == "GemeentecodeGM")] <- "municip_code"
   df[["year"]] <- as.integer(stringr::str_extract(df[["year"]], "^[0-9]{4}"))
-  df[["Gemeentecode"]] <- NULL
   df[["Provinciecode"]] <- NULL
   df[["ProvinciecodePV"]] <- NULL
   df
