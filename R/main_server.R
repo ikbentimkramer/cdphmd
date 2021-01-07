@@ -39,6 +39,12 @@ main_server <- function(housing_data, housing_price, mapdata, woon) {
       "coropchar",
       barplot_server)
 
+    barplot_server(
+      "satisfaction2",
+      "tevrstr",
+      "corop",
+      woon)
+
     dropdown_box_graph_server(
       "move_desire",
       "verhwens",
