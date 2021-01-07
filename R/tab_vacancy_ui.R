@@ -9,6 +9,13 @@ tab_vacancy_ui <- function(woon) {
     "vacancy",
     shiny::fluidRow(
       shinydashboard::box(
-        title = "Hoe is de leegstand van woningen in uw buurt in de afgelopen vijf jaar veranderd?",
-        barplot_ui("vacancy"))))
+        title = "Percieved vacancy per age group, per region",
+        dropdown_box_graph_ui(
+          "vacancy1",
+          barplot_ui,
+          "COROP-regio",
+          unique(woon[,"coropchar"]))),
+      shinydashboard::box(
+        title = "Percieved vacancy per region",
+        barplot_ui("vacancy2"))))
 }
