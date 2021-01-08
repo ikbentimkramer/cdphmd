@@ -52,7 +52,11 @@ get_data <- function (data_string, woonpath = "") {
                           clean_migration_data(
                             read_migration_data(),
                             read_municipality())),
-    "woon_translated", quote(clean_and_translate_woon(woonpath)))
+    "woon_translated",  quote(clean_and_translate_woon(woonpath)),
+    "register_imputed", quote(
+                          clean_imputed_data(
+                            readxl::read_excel(
+                              this_pkg("Excel sheet data.xlsx")))))
 
   ## Create cache dir if it does not exist. Without showWarnings =
   ## FALSE it will warn when the directory already exists.
