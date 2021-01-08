@@ -56,7 +56,7 @@ get_data <- function (data_string, woonpath = "") {
     "register_imputed", quote(
                           clean_imputed_data(
                             readxl::read_excel(
-                              this_pkg("Excel sheet data.xlsx")))))
+                              this_pkg("Excel_sheet_data.xlsx")))))
 
   ## Create cache dir if it does not exist. Without showWarnings =
   ## FALSE it will warn when the directory already exists.
