@@ -10,7 +10,6 @@
 #' @return a data frame with five columns: municipality, province, 2015, 2019 and Balance.
 #' @importFrom tidyr spread
 #' @noRd
-
 filter_imputed_migration_data <- function(imputed_data){
   df <- select(imputed_data, municip_code, municipality, province, year, population)
   df <- df[df$year == 2015 | df$year == 2019, ]

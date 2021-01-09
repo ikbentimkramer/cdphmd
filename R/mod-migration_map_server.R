@@ -54,6 +54,8 @@ migration_map_server <- function(id, mapdata, filtered_migration) {
           )
         ) %>% leaflet::addLegend(pal = pal, values = ~Balance, opacity = 0.7, title = "Population change",
                                  position = "bottomright")
-    })
-  })
+    }
+    )
+  }
+  )
 }
