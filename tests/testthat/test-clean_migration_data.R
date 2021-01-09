@@ -15,14 +15,14 @@ codes_df <- data.frame(
 res <- clean_migration_data(df,codes_df)
 
 test_that("Cleaned df contains the right columns",{
-  col_names <- c("municipality", "province", "2015", "2019", "Balance")
+  col_names <- c("province", "municipality", "2015", "2019", "Balance")
   expect_true(all(col_names %in% names(res)))
   expect_true(all(names(res) %in% col_names))
 })
 
 test_that("Cleaned df correctly matches municipality codes", {
   expect_equal(res[which(res[,"Balance"] == 153),
-                   "municipality"], "Noordenveld")
+                   "province"], "Noordenveld")
 })
 
 test_that("jsonlite::read_json is called with two arguments", {
