@@ -10,18 +10,6 @@ test_that("line_graph_server does not throw errors", {
   })
 })
 
-## Remove this test once plotly gets updated on CRAN
-test_that("line_graph_server throws a dplyr deprication warning", {
-  rlang::with_options(lifecycle_verbosity = "warning", {
-    shiny::testServer(
-      line_graph_server,
-      args = list(x = "foo", y = "bar", df = input),
-      {
-        expect_warning(output$linegraph, "dplyr")
-      })
-  })
-})
-
 test_that("column name strings get converted to formulas correctly",{
   expect_equal(string2formula("foo"), ~foo)
   expect_equal(string2formula(" foo"), ~` foo`)
