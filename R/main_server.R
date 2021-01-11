@@ -8,7 +8,7 @@
 #' }
 #' @import shiny
 #' @noRd
-main_server <- function(housing_data, housing_price, mapdata, woon) {
+main_server <- function(housing_data, housing_price, filtered_migration, mapdata, woon) {
   function(input, output, session) {
     dropdown_box_graph_server(
       "housing_stock",
@@ -77,5 +77,10 @@ main_server <- function(housing_data, housing_price, mapdata, woon) {
       "housing_price_map",
       mapdata,
       housing_price)
+    
+    migration_map_server(
+      "migration_map",
+      mapdata,
+      filtered_migration)
   }
 }

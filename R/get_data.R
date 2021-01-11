@@ -52,6 +52,10 @@ get_data <- function (data_string, woonpath = "") {
                           clean_migration_data(
                             read_migration_data(),
                             read_municipality())),
+    
+    "filtered_migration", quote(
+      filter_imputed_migration_data(get_data("register_imputed"))),
+    
     "woon_translated",  quote(clean_and_translate_woon(woonpath)),
     "register_imputed", quote(
                           clean_imputed_data(

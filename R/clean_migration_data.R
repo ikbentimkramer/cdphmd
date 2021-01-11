@@ -39,8 +39,8 @@ clean_migration_data <- function(df,codes_df) {
   df[["X3"]] <- as.integer(stringr::str_extract(df[["X3"]], "^[0-9]{4}"))
   colnames(df)[which(colnames(df) == "X3")] <- "year"
   colnames(df)[which(colnames(df) == "X4")] <- "Population on 1 January"
-  colnames(df)[which(colnames(df) == "X1")] <- "province"
-  colnames(df)[which(colnames(df) == "X2")] <- "municipality"
+  colnames(df)[which(colnames(df) == "X2")] <- "province"
+  colnames(df)[which(colnames(df) == "X1")] <- "municipality"
   
   
   

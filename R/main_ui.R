@@ -9,7 +9,7 @@
 #' @import shiny
 #' @import shinydashboard
 #' @noRd
-main_ui  <- function(housing_data, housing_price, woon) {
+main_ui  <- function(housing_data, housing_price, filtered_migration, woon) {
   constants <- list(
     title = "CDPHMD")
   header <- shinydashboard::dashboardHeader(title = constants[["title"]])
@@ -23,7 +23,8 @@ main_ui  <- function(housing_data, housing_price, woon) {
 
       shinydashboard::menuItem(
         "Accountability",
-        tabName = "Acc"),
+        tabName = "Acc",
+        icon = icon("clipboard-check")),
 
       shinydashboard::menuItem(
         "Registered data",
@@ -45,6 +46,7 @@ main_ui  <- function(housing_data, housing_price, woon) {
       shinydashboard::menuItem(
         "Subjective data",
         tabName = "subdata",
+        icon = icon("clipboard"),
         shinydashboard::menuSubItem(
           "Satisfaction",
           tabName = "satisfaction"),
@@ -57,7 +59,9 @@ main_ui  <- function(housing_data, housing_price, woon) {
       ),
       shinydashboard::menuItem(
         "Downloads",
-        tabName = "download")
+        tabName = "download",
+      icon = icon("download")
+      )
     )
   )
 
@@ -84,10 +88,8 @@ main_ui  <- function(housing_data, housing_price, woon) {
       tab_housingstock_ui(housing_data),
 
       tab_housingprice_ui(housing_price),
-
-      shinydashboard::tabItem(
-        "migration",
-        shiny::includeMarkdown(this_pkg("www/md/migration.md"))),
+      
+      tab_migration_ui(),
 
       tab_satisfaction_ui(woon),
 
