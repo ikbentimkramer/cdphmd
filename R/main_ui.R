@@ -73,45 +73,9 @@ main_ui  <- function(housing_data, housing_price, woon) {
         type = "text/css")
     ),
     shinydashboard::tabItems(
-      shinydashboard::tabItem(
-        tabName = "Intro",
-        shiny::fluidRow(
-          shinydashboard::box(
-            width = 12,
-            shiny::img(
-              src = "./www/images/reitdiephaven-groningen-free-license-cc0.jpg",
-              alt = "Colourful houses on the waterside",
-              style = "width: 100%"))),
-        shiny::fluidRow(
-          shinydashboard::box(
-            width = 12,
-            shiny::includeMarkdown(this_pkg("inst/www/md/intro.md"))))),
+      tab_intro_ui(),
 
-      shinydashboard::tabItem(
-        tabName = "Acc",
-        shiny::fluidRow(
-          shinydashboard::box(
-            width = 12,
-            shiny::includeMarkdown(this_pkg("www/md/accountability.md")))),
-        shiny::fluidRow(
-          shinydashboard::box(
-            width = 3,
-            shiny::img(
-              alt = "Logo Rijksuniversiteit Groningen",
-              src = "./www/images/rugr_logoenv_rood_rgb.png",
-              style = "width: 100%")),
-          shinydashboard::box(
-            width = 6,
-            shiny::img(
-              alt = "Logo minor Data Wise",
-              src = "./www/images/datawise-logo.png",
-              style = "width: 100%")),
-          shinydashboard::box(
-            width = 3,
-            shiny::img(
-              alt = "Logo CBS",
-              src = "./www/images/cbs-ld-logo.png",
-              style = "width: 100%")))),
+      tab_accountability_ui(),
 
       shinydashboard::tabItem(
         tabName = "download",
