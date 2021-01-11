@@ -22,5 +22,5 @@ test_that("Cleaned df contains the right columns",{
 
 test_that("Cleaned df correctly matches municipality codes", {
   expect_equal(res[which(res[,"Balance"] == 183),
-                   "municipality"], "Aa en Hunzex")
+                   "municipality"], "Aa en Hunze")
 })
