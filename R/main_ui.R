@@ -75,12 +75,22 @@ main_ui  <- function(housing_data, housing_price, woon) {
     shinydashboard::tabItems(
       shinydashboard::tabItem(
         tabName = "Intro",
-        shiny::includeMarkdown(this_pkg("inst/www/md/intro.md"))),
+        shiny::fluidRow(
+          shinydashboard::box(
+            width = 12,
+            shiny::img(
+              src = "./www/images/reitdiephaven-groningen-free-license-cc0.jpg",
+              alt = "Colourful houses on the waterside",
+              style = "width: 100%"))),
+        shiny::fluidRow(
+          shinydashboard::box(
+            width = 12,
+            shiny::includeMarkdown(this_pkg("inst/www/md/intro.md"))))),
 
       shinydashboard::tabItem(
         tabName = "Acc",
         shiny::includeMarkdown(this_pkg("www/md/accountability.md"))),
-      
+
       shinydashboard::tabItem(
         tabName = "download",
         shiny::includeMarkdown(this_pkg("www/md/download.md"))),
