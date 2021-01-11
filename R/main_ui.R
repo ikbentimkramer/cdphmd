@@ -23,7 +23,8 @@ main_ui  <- function(housing_data, housing_price, filtered_migration, woon) {
 
       shinydashboard::menuItem(
         "Accountability",
-        tabName = "Acc"),
+        tabName = "Acc",
+        icon = icon("clipboard-check")),
 
       shinydashboard::menuItem(
         "Registered data",
@@ -45,6 +46,7 @@ main_ui  <- function(housing_data, housing_price, filtered_migration, woon) {
       shinydashboard::menuItem(
         "Subjective data",
         tabName = "subdata",
+        icon = icon("clipboard"),
         shinydashboard::menuSubItem(
           "Satisfaction",
           tabName = "satisfaction"),
@@ -57,7 +59,9 @@ main_ui  <- function(housing_data, housing_price, filtered_migration, woon) {
       ),
       shinydashboard::menuItem(
         "Downloads",
-        tabName = "download")
+        tabName = "download",
+      icon = icon("download")
+      )
     )
   )
 
