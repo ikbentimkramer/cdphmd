@@ -7,9 +7,9 @@ map <- tibble::tribble(
 map  <- sf::st_sf(as.data.frame(map))
 map <- sf::st_set_crs(map, 4326)
 data <- tibble::tribble(
-  ~municip_code, ~municipality, ~`Balance`,
-  "GM0059", "Achtkarspelen", -131,
-  "GM0106", "Assen", 798)
+  ~municip_code, ~municipality, ~`Percentage`,
+  "GM0059", "Achtkarspelen", -0.47,
+  "GM0106", "Assen",  1.17)
 
 test_that("Map server does not throw errors", {
   shiny::testServer(

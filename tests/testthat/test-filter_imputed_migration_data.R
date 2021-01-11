@@ -15,7 +15,7 @@ df <- data.frame(
 res <- filter_imputed_migration_data(df)
 
 test_that("Cleaned df contains the right columns",{
-  col_names <- c("municip_code", "municipality", "province", "2015", "2019", "Balance")
+  col_names <- c("municip_code", "municipality", "province", "2015", "2019", "Balance", "Percentage")
   expect_true(all(col_names %in% names(res)))
   expect_true(all(names(res) %in% col_names))
 })
