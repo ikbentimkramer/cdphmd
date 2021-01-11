@@ -1,5 +1,3 @@
-![Image placeholder](https://i.imgur.com/u4qSjQL.jpg)
-
 # Housing market developments of shrinkage and growing regions in the North of the Netherlands
 
 Welcome to the dashboard of the housing market is shrinking and growing regions in the Northern Netherlands. The dashboard is built by students from the University of Groningen in collaboration with Statistics Netherlands (CBS). The Northern Netherlands has regions that undergo shrinkage whereas other regions are growing slightly or more extreme. This dashboard is built to provide better insight in the indicators that are relevant for the population dynamics of regions. 

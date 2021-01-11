@@ -73,14 +73,10 @@ main_ui  <- function(housing_data, housing_price, filtered_migration, woon) {
         type = "text/css")
     ),
     shinydashboard::tabItems(
-      shinydashboard::tabItem(
-        tabName = "Intro",
-        shiny::includeMarkdown(this_pkg("inst/www/md/intro.md"))),
+      tab_intro_ui(),
 
-      shinydashboard::tabItem(
-        tabName = "Acc",
-        shiny::includeMarkdown(this_pkg("www/md/accountability.md"))),
-      
+      tab_accountability_ui(),
+
       shinydashboard::tabItem(
         tabName = "download",
         shiny::includeMarkdown(this_pkg("www/md/download.md"))),
