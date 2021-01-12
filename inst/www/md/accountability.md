@@ -37,10 +37,3 @@ On the 24th of May 2018, the GDPR was introduced by the European Union (EU). The
 * Right to object (Article 21): The data subject has the right to object if the personal data is shared with third parties.
 
 Firstly, the European Parliament and Council of European Union (2016) shows in article 44 an exemption of article 15,16 and 18 for data processing that is performed by institutions that will use the data for scientific or statistical purposes. Since, CBS is an institutional organization that collects the data for statistical purposes it is exempt from articles 15, 16, and 18. The rights that are described in articles 13 and 14 are ensured by informing the data subjects of what is done with the collected data. Article 21 is not applicable for CBS, since CBS ensures that personable trackable data is not made publicly available.
-
-The following datasets are used:
-
-* Housing stock: CBS. (2020). Dwellings and non-residential stock; changes, utility function, regions [Data set]. Retrieved from https://opendata.cbs.nl/statline/#/CBS/en/dataset/81955ENG/table?dl=48194
-* Housing price: CBS. (2020). Existing own homes; average purchase prices, region [Data set]. Retrieved from https://opendata.cbs.nl/#/CBS/en/dataset/83625ENG/table?dl=48199
-* Population dynamics: CBS. (2020). Population dynamics; birth, death and migration per region [Data set]. Retrieved from https://opendata.cbs.nl/statline/#/CBS/en/dataset/37259eng/table?dl=4819B
-* Subjective indicators: CBS (2020). Woon Onderzoek 2020 [Data set].

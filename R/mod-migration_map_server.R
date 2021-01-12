@@ -2,7 +2,7 @@
 #'
 #' @param id Shiny id
 #' @param mapdata A sf object of municipalities in the Netherlands
-#' @param filtered_migration A dataset with municipality codes, names and population balance from 2015 to 2019
+#' @param filtered_migration A dataset with municipality codes, names and population Percentage from 2015 to 2019
 #' @return A shiny module server
 #'
 #' @importFrom tibble as_tibble
@@ -19,21 +19,21 @@ migration_map_server <- function(id, mapdata, filtered_migration) {
   test <- sf::st_sf(as.data.frame(test, stringsAsFactors = FALSE))
   test <- sf::st_transform(test, crs = 4326)
   
-  bins <- c(-1500, -1000, -500,0,500,1500,5000,10000)
+  bins <- c(-10, -5, -1, 0,1,2.5,5,15)
   
   
   labels <- sprintf(
-    "<strong>%s</strong><br/>%g citizens",
-    test$municipality, test$Balance
+    "<strong>%s</strong><br/>%g percents",
+    test$municipality, test$Percentage
   ) %>% lapply(htmltools::HTML)
   
-  pal <- leaflet::colorBin(palette = "viridis", domain = test$Balance, bins = bins)
+  pal <- leaflet::colorBin(palette = "viridis", domain = test$Percentage, bins = bins)
   
   shiny::moduleServer(id, function(input, output, session) {
     output$migrationmap  <- leaflet::renderLeaflet({
       leaflet::leaflet(test) %>%
         leaflet::addPolygons(
-          fillColor = ~pal(Balance),
+          fillColor = ~pal(Percentage),
           weight = 2,
           opacity = 1,
           color = "white",
@@ -52,7 +52,7 @@ migration_map_server <- function(id, mapdata, filtered_migration) {
             textsize = "15px",
             direction = "auto"
           )
-        ) %>% leaflet::addLegend(pal = pal, values = ~Balance, opacity = 0.7, title = "Population change",
+        ) %>% leaflet::addLegend(pal = pal, values = ~Percentage, opacity = 0.7, title = "Population change",
                                  position = "bottomright")
     }
     )
