@@ -27,5 +27,9 @@ filter_imputed_migration_data <- function(imputed_data){
   df <- cbind(df, Balance)
   df$Percentage <- (df$Balance)/(df$`2019`)*100
   df$Percentage <- as.numeric(format(round(df$Percentage, 2), nsmall = 2))
+  df <- df %>%
+    mutate(Change = Percentage > 0)
+  df[df$Change == TRUE, "Change"] <- "positive"
+  df[df$Change == FALSE, "Change"] <- "negative"
   df
 }
