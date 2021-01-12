@@ -19,7 +19,7 @@ migration_map_server <- function(id, mapdata, filtered_migration) {
   test <- sf::st_sf(as.data.frame(test, stringsAsFactors = FALSE))
   test <- sf::st_transform(test, crs = 4326)
   
-  bins <- c(-10, -5, -2.5, -1, 0,1,2.5,5,15)
+  bins <- c(-10, -5, -1, 0,1,2.5,5,15)
   
   
   labels <- sprintf(
