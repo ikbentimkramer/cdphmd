@@ -18,5 +18,8 @@ tab_housingstock_ui <- function(housing_data) {
           line_graph_ui,
           "Municipality",
           unique(housing_data[,"municipality"])),
-        title = "Housing stock")))
+        title = "Housing stock")),
+    shiny::fluidRow(
+      shinydashboard::box(width = 12,
+        shiny::includeMarkdown(this_pkg("www/md/housingstock2.md")))))
 }

@@ -18,5 +18,10 @@ tab_satisfaction_ui <- function(woon) {
           unique(woon[,"coropchar"]))),
       shinydashboard::box(
         title = "Satisfaction per region",
-        barplot_ui("satisfaction2"))))
+        barplot_ui("satisfaction2"))),
+    shiny::fluidRow(
+      shinydashboard::box(width = 6,
+                          shiny::includeMarkdown(this_pkg("www/md/satisfaction1.md"))),
+      shinydashboard::box(width = 6,
+                          shiny::includeMarkdown(this_pkg("www/md/satisfaction2.md")))))
 }

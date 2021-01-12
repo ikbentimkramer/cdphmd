@@ -9,4 +9,8 @@ tab_migration_ui <- function() {
     shiny::fluidRow(
       shinydashboard::box(
         migration_map_ui(
-          "migration_map"))))}
+          "migration_map"))),
+    shiny::fluidRow(
+      shinydashboard::box(width = 12,
+                          shiny::includeMarkdown(this_pkg("www/md/migration2.md")))))
+}
