@@ -17,5 +17,10 @@ tab_move_desire_ui <- function(woon) {
           unique(woon[,"coropchar"]))),
       shinydashboard::box(
         title = "Desire to move per region",
-        barplot_ui("move_desire2"))))
+        barplot_ui("move_desire2"))),
+    shiny::fluidRow(
+      shinydashboard::box(width = 6,
+                          shiny::includeMarkdown(this_pkg("www/md/movedesire1.md"))),
+      shinydashboard::box(width = 6,
+                          shiny::includeMarkdown(this_pkg("www/md/movedesire2.md")))))
 }

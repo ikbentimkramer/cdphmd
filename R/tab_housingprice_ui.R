@@ -18,5 +18,8 @@ tab_housingprice_ui <- function(housing_price) {
           line_graph_ui,
           "Municipality",
           unique(housing_price[,"municipality"])),
-        title = "Average selling price")))
+        title = "Average selling price")),
+    shiny::fluidRow(
+      shinydashboard::box(width = 12,
+                          shiny::includeMarkdown(this_pkg("www/md/housingprice2.md")))))
 }

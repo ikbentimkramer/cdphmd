@@ -16,5 +16,8 @@ tab_migration_ui <- function(filtered_migration) {
           "barplotmigration1",
           barplot_migration_ui,
           "province",
-          unique(filtered_migration[,"province"])))))}
-   
+          unique(filtered_migration[,"province"])))),
+    shiny::fluidRow(
+      shinydashboard::box(
+        width = 12,
+        shiny::includeMarkdown(this_pkg("www/md/migration2.md")))))}
