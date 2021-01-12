@@ -8,6 +8,6 @@
 barplot_migration_ui <- function (id) {
   ns <- shiny::NS(id)
   shiny::tagList(
-    plotly::plotlyOutput(ns("barmigrationplot"))
+    plotly::plotlyOutput(ns("barplotmigration"))
   )
 }

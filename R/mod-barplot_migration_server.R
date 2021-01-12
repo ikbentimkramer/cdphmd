@@ -14,36 +14,29 @@
 #' @importFrom ggplot2 ggplot aes geom_bar xlab
 #'   element_blank xlab theme element_line
 #' @noRd
-barplot_migration_server <- function(id, df, x, y){
-  myplots <- vector('list', 3)
-  
+barplot_migration_server <- function(id, x, y, df){
   shiny::moduleServer(id, function(input, output, session) {
-    output$barplot_migration  <- plotly::renderPlotly({
-      for (i in 1:3){
-        x = c("Groningen", "Drenthe", "Friesland")
-      df_subs <- df[df$province == x[i], ]
-          if (shiny::is.reactive(df_subs)) {
-            df_subs <- df_subs()
+    output$barplotmigration  <- plotly::renderPlotly({
+          if (shiny::is.reactive(df)) {
+            df <- df()
           }
-          
-          plot <- ggplot2::ggplot(data = df_subs,
+          plot <- ggplot2::ggplot(data = df,
                                  aes(x = Percentage, y = reorder(municipality, Percentage),
-                                     fill = Change))+
+                                     fill = Change,
+                                     text = paste0(.data$Percentage, " %")))+
                             geom_bar(stat = "identity")+ 
                             theme(
                               plot.background = element_blank(),
                               panel.background = element_blank(),
                               panel.border = element_blank(),
-                              panel.grid.major = element_line(size = 0.5, linetype = 'dotted',
-                                                              colour = "black"),
+                              panel.grid.major = element_blank(),
                               axis.title.y = element_blank(),
                               panel.grid.minor = element_blank(),
                               axis.line = element_line(colour = "black"))+
                             xlab("Percentage change")
-                            myplots[[i]] <- plot
-        fig <- plotly::ggplotly(myplots)
+                            plot
+        fig <- plotly::ggplotly(plot, tooltip = c("text"))
         fig
-          }
       })
   })
 }

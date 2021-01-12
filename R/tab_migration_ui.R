@@ -13,7 +13,8 @@ tab_migration_ui <- function(filtered_migration) {
       shinydashboard::box(
         title = "Population percentage change per province",
         dropdown_box_graph_ui(
-          "barplot_migration1",
+          "barplotmigration1",
           barplot_migration_ui,
-          "Province",
+          "province",
           unique(filtered_migration[,"province"])))))}
+   
