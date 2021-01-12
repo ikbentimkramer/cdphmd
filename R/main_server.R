@@ -82,5 +82,14 @@ main_server <- function(housing_data, housing_price, filtered_migration, mapdata
       "migration_map",
       mapdata,
       filtered_migration)
+    
+    dropdown_box_graph_server(
+      "barplotmigration1",
+      "Percentage",
+      "municipality",
+      filtered_migration,
+      "province",
+      barplot_migration_server)
+    
   }
 }

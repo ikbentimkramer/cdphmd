@@ -89,7 +89,7 @@ main_ui  <- function(housing_data, housing_price, filtered_migration, woon) {
 
       tab_housingprice_ui(housing_price),
       
-      tab_migration_ui(),
+      tab_migration_ui(filtered_migration),
 
       tab_satisfaction_ui(woon),
 
