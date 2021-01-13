@@ -20,8 +20,6 @@ tab_satisfaction_ui <- function(woon) {
         title = "Satisfaction per region",
         barplot_ui("satisfaction2"))),
     shiny::fluidRow(
-      shinydashboard::box(width = 6,
-                          shiny::includeMarkdown(this_pkg("www/md/satisfaction1.md"))),
-      shinydashboard::box(width = 6,
-                          shiny::includeMarkdown(this_pkg("www/md/satisfaction2.md")))))
+      shinydashboard::box(width = 12,
+                          shiny::includeMarkdown(this_pkg("www/md/satisfaction1.md")))))
 }

@@ -7,6 +7,7 @@
 tab_move_desire_ui <- function(woon) {
   shinydashboard::tabItem(
     "move_desire",
+    shiny::includeMarkdown(this_pkg("www/md/willingtomove.md")),
     shiny::fluidRow(
       shinydashboard::box(
         title = "Desire to move per age group, per region",
@@ -19,8 +20,7 @@ tab_move_desire_ui <- function(woon) {
         title = "Desire to move per region",
         barplot_ui("move_desire2"))),
     shiny::fluidRow(
-      shinydashboard::box(width = 6,
-                          shiny::includeMarkdown(this_pkg("www/md/movedesire1.md"))),
-      shinydashboard::box(width = 6,
-                          shiny::includeMarkdown(this_pkg("www/md/movedesire2.md")))))
+      shiny::fluidRow(
+        shinydashboard::box(width = 12,
+                            shiny::includeMarkdown(this_pkg("www/md/movedesire1.md"))))))
 }
