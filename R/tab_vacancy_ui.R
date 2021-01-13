@@ -20,7 +20,6 @@ tab_vacancy_ui <- function(woon) {
         title = "Percieved vacancy per region",
         barplot_ui("vacancy2"))),
     shiny::fluidRow(
-      shiny::fluidRow(
         shinydashboard::box(width = 12,
-                            shiny::includeMarkdown(this_pkg("www/md/vacancy1.md"))))))
+                            shiny::includeMarkdown(this_pkg("www/md/vacancy1.md")))))
 }
