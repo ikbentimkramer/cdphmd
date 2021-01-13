@@ -2,7 +2,7 @@
 The report including the analysis of this housing market dashboard, the progress report and the links to the open datasets used in order to create this dashboard can be found below.
 
 ## Reports
-* [Final Report CBS Project Team](www/reports/FinalReport.docx)
+* [Final Report CBS Project Team](www/reports/FinalReport.pdf)
 * [Progress Report CBS Project Team](www/reports/ProgressReport.pdf)
 
 ## Datasets

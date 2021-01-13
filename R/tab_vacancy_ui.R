@@ -7,6 +7,7 @@
 tab_vacancy_ui <- function(woon) {
   shinydashboard::tabItem(
     "vacancy",
+    shiny::includeMarkdown(this_pkg("www/md/vacancy.md")),
     shiny::fluidRow(
       shinydashboard::box(
         title = "Percieved vacancy per age group, per region",
@@ -19,8 +20,7 @@ tab_vacancy_ui <- function(woon) {
         title = "Percieved vacancy per region",
         barplot_ui("vacancy2"))),
     shiny::fluidRow(
-      shinydashboard::box(width = 6,
-                          shiny::includeMarkdown(this_pkg("www/md/vacancy1.md"))),
-      shinydashboard::box(width = 6,
-                          shiny::includeMarkdown(this_pkg("www/md/vacancy2.md")))))
+      shiny::fluidRow(
+        shinydashboard::box(width = 12,
+                            shiny::includeMarkdown(this_pkg("www/md/vacancy1.md"))))))
 }
