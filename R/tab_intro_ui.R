@@ -14,5 +14,5 @@ tab_intro_ui <- function() {
         shiny::fluidRow(
           shinydashboard::box(
             width = 12,
-            shiny::includeMarkdown(this_pkg("inst/www/md/intro.md")))))
+            shiny::includeMarkdown(this_pkg("www/md/intro.md")))))
 }
