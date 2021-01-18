@@ -20,7 +20,7 @@ stock_map_server <- function(id, mapdata, housing_data) {
   test <- sf::st_sf(as.data.frame(test, stringsAsFactors = FALSE))
   test <- sf::st_transform(test, crs = 4326)
 
-  bins <- c(500, 1500, 5000, 10000, 15000, 20000, 25000, 35000, 60000, 130000)
+  bins <- c(0, 15000, 30000, 45000, 60000, 75000, 90000, 105000, 120000)
 
 
   labels <- sprintf(
@@ -28,7 +28,7 @@ stock_map_server <- function(id, mapdata, housing_data) {
     test$municipality, test$`housing stock`
   ) %>% lapply(htmltools::HTML)
 
-  pal <- leaflet::colorBin(palette = "viridis", domain = test$`housing stock`, bins = bins)
+  pal <- leaflet::colorBin(palette = "viridis", reverse = TRUE, domain = test$`housing stock`, bins = bins)
 
   shiny::moduleServer(id, function(input, output, session) {
     output$stmap  <- leaflet::renderLeaflet({
