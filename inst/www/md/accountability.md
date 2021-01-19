@@ -22,10 +22,14 @@ For more information regarding the analysis and cleaning of our dataset, see the
 
 The visualizations regarding the registered indicators range from the years 2015-2019. During those years, quite some municipalities were merged or redistributed. The municipalities that currently exist are displayed in the dashboard. Some municipalities that are merged do not exist anymore and are therefore not displayed in the dashboard. However, the data from these municipalities is relevant data since it is part of the Northern Netherlands. To solve this issue, the choice is made to sum up the municipalities before the merge that are merged together to one municipality. When a municipality is merged into two different municipalities, the ratio between the division of the municipality is taken into account.
 
-## Colour schemes used
+## Colour schemes
  
 All our maps are using the colour palette provided by the "viridis" R package. This is known to be a printer-friendly, perceptually uniform and easy to read by those with colorblindness.
 
+## Linear Graphs
+
+Take into consideration that linear graphs from the Housing stock and the Housing price indicators do not start at 0. The starting point on the y-axis is the value of the respective indicator in 2015. We have opted for this method because the scope of the dashboard is to show how the housing market changed in the period 2015-2019 and graphs that present these indicators at a smaller scale seem to be more informative, otherwise the line would look almost flat. Another reason this method was chosen is that there is a big difference in the values for different municipalities. Some are a tenth of the size of others. This makes it difficult to use the same scale for each municipality.
+Therefore, please be aware of this when inspecting the line graphs and do not let the skewness of some lines trick you. Evaluate the change of number of house or the change in price in comparison to the total number of houses or the average selling price respectively.
 ## Legal accountability
 
 On the 24th of May 2018, the GDPR was introduced by the European Union (EU). The GDPR obliged us to be aware of several things while using the data for the dashboard

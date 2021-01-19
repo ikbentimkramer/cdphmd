@@ -20,7 +20,7 @@ price_map_server <- function(id, mapdata, housing_price) {
   test <- sf::st_sf(as.data.frame(test, stringsAsFactors = FALSE))
   test <- sf::st_transform(test, crs = 4326)
   
-  bins <- c(140000, 180000, 220000, 260000, 300000, 350000, 400000, 450000)
+  bins <- c(140000, 180000, 220000, 260000, 300000, 340000, 380000, 420000)
   
   
   labels <- sprintf(
@@ -28,7 +28,7 @@ price_map_server <- function(id, mapdata, housing_price) {
     test$municipality, test$`Average selling price`
   ) %>% lapply(htmltools::HTML)
   
-  pal <- leaflet::colorBin(palette = "viridis", domain = test$`Average selling price`, bins = bins)
+  pal <- leaflet::colorBin(palette = "viridis", reverse = TRUE, domain = test$`Average selling price`, bins = bins)
   
   shiny::moduleServer(id, function(input, output, session) {
     output$prmap  <- leaflet::renderLeaflet({

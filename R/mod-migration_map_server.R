@@ -19,7 +19,7 @@ migration_map_server <- function(id, mapdata, filtered_migration) {
   test <- sf::st_sf(as.data.frame(test, stringsAsFactors = FALSE))
   test <- sf::st_transform(test, crs = 4326)
   
-  bins <- c(-10, -5, -1, 0,1,2.5,5,15)
+  bins <- c(-6,-4, -2, 0,2,4,6)
   
   
   labels <- sprintf(
@@ -27,7 +27,7 @@ migration_map_server <- function(id, mapdata, filtered_migration) {
     test$municipality, test$Percentage
   ) %>% lapply(htmltools::HTML)
   
-  pal <- leaflet::colorBin(palette = "viridis", domain = test$Percentage, bins = bins)
+  pal <- leaflet::colorBin(palette = "viridis", reverse = TRUE, domain = test$Percentage, bins = bins)
   
   shiny::moduleServer(id, function(input, output, session) {
     output$migrationmap  <- leaflet::renderLeaflet({
@@ -52,7 +52,7 @@ migration_map_server <- function(id, mapdata, filtered_migration) {
             textsize = "15px",
             direction = "auto"
           )
-        ) %>% leaflet::addLegend(pal = pal, values = ~Percentage, opacity = 0.7, title = "Population change",
+        ) %>% leaflet::addLegend(pal = pal, values = ~Percentage, opacity = 0.7, title = "Population change (%)",
                                  position = "bottomright")
     }
     )
