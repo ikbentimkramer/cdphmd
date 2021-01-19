@@ -6,15 +6,15 @@ This dashboard is created by 6 motivated students for the CBS in cooperation wit
 
 Below every indicator, a short summary can be found on the main findings. Six indicators are investigated in this dashboard, half are based on the objective CBS datasets. The CBS datasets are retrieved using Statline. Statline is a database where the CBS makes numerous databases publicly available. Statline is used to find relevant data for the objective indicators, which are housing stock, housing price and migration within the region.
 
-* Housing stock – add short into
-* Housing price
-* Population dynamics
+* Housing stock - All types of houses (eg. apartments, vila, family house) that are available in a specified area.
+* Housing price - The average selling price per year for houses in a specified area.
+* Population dynamics - The net change of population for a specified area.
 
-The WOON2018 dataset is used for the other three subjective indicators. The WOON2018 is a survey that is conducted by Dutch citizens and they are asked questions about their way of life, their satisfaction with their region, the type of house they live in, etc. WOON2018 is used to analyse data for the subjective indicators, which are satisfaction with the region, vacancy rate of homes in neighbourhood and willingness to move. The age group and region of residence of the respondents were available in the dataset, enabling us to analyse it to a
+The WOON2018 dataset is used for the other three subjective indicators. The WOON2018 is a survey that is conducted by Dutch citizens and they are asked questions about their way of life, their satisfaction with their region, the type of house they live in, etc. WOON2018 is used to analyse data for the subjective indicators, which are satisfaction with the region, vacancy rate of homes in neighbourhood and desire to move. The age group and region of residence of the respondents were available in the dataset.
 
-* Satisfaction with the region – add short into
-* Vacancy rate of homes in neighbourhood
-* Willingness to move.
+* Satisfaction with the region - The satisfaction of the inhabitants with the region they are living in. 
+* Vacancy rate of homes in neighbourhood - The perceived change in the vacancy rate over the past 5 years of private and business properties that are available in the neighbourhood. 
+* Desire to move - The desire to move to another place within the timeframe of two years. 
 
 For more information regarding the analysis and cleaning of our dataset, see the ‘Final report Housing Market’ under ‘Downloads’. Several additional analysis methods, including statistical significance, can be found there.
 
