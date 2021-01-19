@@ -28,7 +28,7 @@ All our maps are using the colour palette provided by the "viridis" R package. T
 
 ## Linear Graphs
 
-Take into consideration that linear graphs from the Housing stock and the Housing price indicators do not start at 0. The starting point on the y-axis is the value of the respective indicator in 2015. We have opted for this method because the scope of the dashboard is to show how the housing market changed in the period 2015-2019 and graphs that present these indicators at a smaller scale seem to be more informative, otherwise the line would look almost flat. Another reason this method was chosen is that there is a big amplitude between values for the municipalities. 
+Take into consideration that linear graphs from the Housing stock and the Housing price indicators do not start at 0. The starting point on the y-axis is the value of the respective indicator in 2015. We have opted for this method because the scope of the dashboard is to show how the housing market changed in the period 2015-2019 and graphs that present these indicators at a smaller scale seem to be more informative, otherwise the line would look almost flat. Another reason this method was chosen is that there is a big difference in the values for different municipalities. Some are a tenth of the size of others. This makes it difficult to use the same scale for each municipality.
 Therefore, please be aware of this when inspecting the line graphs and do not let the skewness of some lines trick you. Evaluate the change of number of house or the change in price in comparison to the total number of houses or the average selling price respectively.
 ## Legal accountability
 
