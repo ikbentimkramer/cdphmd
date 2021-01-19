@@ -20,7 +20,7 @@ tab_move_desire_ui <- function(woon) {
           "COROP-regio",
           unique(woon[,"coropchar"])))),
     shiny::fluidRow(
-      shiny::fluidRow(
         shinydashboard::box(width = 12,
-                            shiny::includeMarkdown(this_pkg("www/md/movedesire1.md"))))))
+                            shiny::includeMarkdown(this_pkg("www/md/movedesire1.md")))))
 }
+
