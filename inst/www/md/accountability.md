@@ -16,7 +16,7 @@ The WOON2018 dataset is used for the other three subjective indicators. The WOON
 * Vacancy rate of homes in neighbourhood - The perceived change in the vacancy rate over the past 5 years of private and business properties that are available in the neighbourhood. 
 * Desire to move - The desire to move to another place within the timeframe of two years. 
 
-For more information regarding the analysis and cleaning of our dataset, see the ‘Final report Housing Market’ under ‘Downloads’. Several additional analysis methods, including statistical significance, can be found there.
+For more information regarding the analysis and cleaning of our dataset, see the ‘Final Report’ under ‘Downloads’. Several additional analysis methods, including statistical significance, can be found there.
 
 ## Merging municipalities
 
@@ -28,7 +28,7 @@ All our maps are using the colour palette provided by the "viridis" R package. T
 
 ## Linear Graphs
 
-Take into consideration that linear graphs from the Housing stock and the Housing price indicators do not start at 0. The starting point on the y-axis is the value of the respective indicator in 2015. We have opted for this method because the scope of the dashboard is to show how the housing market changed in the period 2015-2019 and graphs that present these indicators at a smaller scale seem to be more informative, otherwise the line would look almost flat. Another reason this method was chosen is that there is a big difference in the values for different municipalities. Some are a tenth of the size of others. This makes it difficult to use the same scale for each municipality.
+Take into consideration that linear graphs from the Housing stock and the Housing price indicators do not start at 0. The boundaries of the y-axis are given by the lowest and the highest value of the respective indicator in the period 2015-2019. We have opted for this method because the scope of the dashboard is to show how the housing market changed in the period 2015-2019 and graphs that present these indicators at a smaller scale seem to be more informative, otherwise the line would look almost flat. Another reason this method was chosen is that there is a big difference in the values for different municipalities. Some are a tenth of the size of others. This makes it difficult to use the same scale for each municipality.
 Therefore, please be aware of this when inspecting the line graphs and do not let the skewness of some lines trick you. Evaluate the change of number of house or the change in price in comparison to the total number of houses or the average selling price respectively.
 ## Legal accountability
 
